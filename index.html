@@ -137,17 +137,32 @@
   <section id="about" class="about">
     <div class="about-grid">
 
-      <!-- Image side -->
+      <!-- Image side — 環境照輪播 -->
       <div class="about-img-wrap fade-left">
         <div class="about-deco"></div>
-        <div class="about-img-frame">
-          <!-- 換圖片：修改 images.js 裡的 about 路徑 -->
-          <img
-            data-img="about"
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
-            alt="AscentisTech modern office"
-          />
+
+        <div class="about-img-frame about-carousel" id="aboutCarousel">
+          <div class="carousel-track">
+            <img class="carousel-slide active" src="https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_894196076798065527.jpg?v=20260304161209" alt="AscentisTech office 1" />
+            <img class="carousel-slide" src="https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_894196076798065528.jpg?v=20260304161209" alt="AscentisTech office 2" />
+            <img class="carousel-slide" src="https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_966243507386551216.jpg?v=20260304161209" alt="AscentisTech office 3" />
+            <img class="carousel-slide" src="https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_894196076798065529.jpg?v=20260304161209" alt="AscentisTech office 4" />
+            <img class="carousel-slide" src="https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_966243507386551217.jpg?v=20260304161209" alt="AscentisTech office 5" />
+            <img class="carousel-slide" src="https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_894196076798065530.jpg?v=20260304161209" alt="AscentisTech office 6" />
+            <img class="carousel-slide" src="https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_966243507386551218.jpg?v=20260304161209" alt="AscentisTech office 7" />
+            <img class="carousel-slide" src="https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_894196076798065531.jpg?v=20260304161209" alt="AscentisTech office 8" />
+            <img class="carousel-slide" src="https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_966243507386551219.jpg?v=20260304161209" alt="AscentisTech office 9" />
+            <img class="carousel-slide" src="https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_894196076798065532.jpg?v=20260304161209" alt="AscentisTech office 10" />
+          </div>
+          <button class="carousel-btn carousel-prev" aria-label="上一張">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn carousel-next" aria-label="下一張">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <div class="carousel-dots"></div>
         </div>
+
         <div class="about-badge">
           <div class="about-badge-year">2025</div>
           <div class="about-badge-label">Taiwan<br />Agile Awards</div>

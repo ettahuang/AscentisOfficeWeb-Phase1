@@ -136,6 +136,53 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(s => sectionObserver.observe(s));
 
+// ── About carousel ───────────────────────────
+(function () {
+  const frame = document.getElementById('aboutCarousel');
+  if (!frame) return;
+
+  const slides = frame.querySelectorAll('.carousel-slide');
+  const dotsEl = frame.querySelector('.carousel-dots');
+  const total = slides.length;
+  let current = 0;
+
+  // Build dot indicators
+  slides.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'dot' + (i === 0 ? ' active' : '');
+    btn.setAttribute('aria-label', 'Photo ' + (i + 1));
+    btn.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(btn);
+  });
+
+  // Build counter (e.g. "1 / 10")
+  const counter = document.createElement('div');
+  counter.className = 'carousel-counter';
+  counter.textContent = '1 / ' + total;
+  frame.appendChild(counter);
+
+  const dots = dotsEl.querySelectorAll('.dot');
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (index + total) % total;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    counter.textContent = (current + 1) + ' / ' + total;
+  }
+
+  frame.querySelector('.carousel-prev').addEventListener('click', () => goTo(current - 1));
+  frame.querySelector('.carousel-next').addEventListener('click', () => goTo(current + 1));
+
+  // Keyboard support when hovering
+  frame.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
+  });
+  frame.setAttribute('tabindex', '0');
+})();
+
 // ── Scroll to top button ─────────────────────
 const scrollTop = document.getElementById('scrollTop');
 if (scrollTop) {

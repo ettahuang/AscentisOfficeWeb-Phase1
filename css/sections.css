@@ -130,6 +130,87 @@
   line-height: 1.6;
 }
 
+/* ── About Carousel ──────────────────────── */
+.about-carousel { cursor: default; }
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.55s ease;
+}
+.carousel-slide.active { opacity: 1; }
+
+/* 不讓 hover 的縮放套用到全部 slides */
+.about-carousel:hover .carousel-slide:not(.active) { transform: none; }
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.88);
+  color: var(--blue-700);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--ease);
+}
+.carousel-btn:hover {
+  background: var(--white);
+  color: var(--blue-600);
+  transform: translateY(-50%) scale(1.08);
+}
+.carousel-prev { left: var(--s2); }
+.carousel-next { right: var(--s2); }
+
+.carousel-dots {
+  position: absolute;
+  bottom: var(--s2);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+.dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  padding: 0;
+  transition: var(--ease);
+}
+.dot.active {
+  background: var(--white);
+  transform: scale(1.4);
+}
+.dot:hover { background: rgba(255,255,255,0.8); }
+
+/* 圖片計數器 */
+.carousel-counter {
+  position: absolute;
+  top: var(--s2);
+  right: var(--s2);
+  z-index: 10;
+  background: rgba(0,0,0,0.4);
+  color: rgba(255,255,255,0.85);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+  letter-spacing: 0.05em;
+}
+
 .mission-box {
   margin-top: var(--s4);
   padding: var(--s3) var(--s4);
