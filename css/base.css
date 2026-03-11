@@ -1,0 +1,213 @@
+/* =============================================
+   base.css — CSS Variables · Reset · Typography
+   Buttons · Animations · Container
+   ============================================= */
+
+/* ── Google Fonts (loaded in HTML) ─────────── */
+
+/* ── CSS Variables ─────────────────────────── */
+:root {
+  /* White / Cream */
+  --white:        #FFFFFF;
+  --cream-50:     #FDFBF7;
+  --cream-100:    #F6F1E7;
+  --cream-200:    #EBE3D0;
+  --cream-300:    #D9CEBC;
+
+  /* Grass Green */
+  --green-50:     #EEF7E4;
+  --green-100:    #CEEAAA;
+  --green-200:    #A0CE6E;
+  --green-300:    #72AD40;   /* primary */
+  --green-400:    #548B28;
+  --green-500:    #386B12;
+  --green-600:    #1E4606;
+
+  /* Wood / Warm Tan */
+  --wood-50:      #FAF5EC;
+  --wood-100:     #EFE0C2;
+  --wood-200:     #D4B88A;
+  --wood-300:     #B8935A;   /* accent */
+  --wood-400:     #946E38;
+  --wood-500:     #6E4E1E;
+  --wood-600:     #4A3210;
+
+  /* Dark (forest) */
+  --dark-900:     #141F0A;
+  --dark-800:     #1C2C0E;
+  --dark-700:     #243718;
+
+  /* Text */
+  --text-900:     #1A1209;
+  --text-700:     #3C2E1A;
+  --text-500:     #6A5A42;
+  --text-300:     #A09078;
+  --text-100:     #CEC4B4;
+
+  /* Semantic */
+  --primary:      var(--green-300);
+  --primary-dark: var(--green-400);
+  --accent:       var(--wood-300);
+  --bg:           var(--white);
+  --bg-alt:       var(--cream-100);
+  --bg-deep:      var(--dark-800);
+
+  /* Spacing */
+  --s1: 0.5rem;
+  --s2: 1rem;
+  --s3: 1.5rem;
+  --s4: 2rem;
+  --s5: 3rem;
+  --s6: 4rem;
+  --s7: 6rem;
+  --s8: 8rem;
+
+  /* Typography scale */
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.875rem;
+  --fs-base: 1rem;
+  --fs-lg:   1.125rem;
+  --fs-xl:   1.375rem;
+  --fs-2xl:  1.75rem;
+  --fs-3xl:  2.25rem;
+  --fs-4xl:  3rem;
+  --fs-5xl:  4rem;
+  --fs-6xl:  5.5rem;
+
+  /* Radii */
+  --r-sm:  8px;
+  --r-md:  16px;
+  --r-lg:  24px;
+  --r-xl:  40px;
+  --r-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(60, 46, 26, 0.07);
+  --shadow-md: 0 6px 24px rgba(60, 46, 26, 0.11);
+  --shadow-lg: 0 16px 48px rgba(60, 46, 26, 0.16);
+
+  /* Transitions */
+  --ease: 0.3s ease;
+  --ease-slow: 0.6s ease;
+
+  /* Layout */
+  --max-w: 1240px;
+  --nav-h: 76px;
+}
+
+/* ── Reset ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+  color: var(--text-700);
+  background: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; font: inherit; }
+
+/* ── Scroll lock when mobile menu open ─────── */
+body.menu-open { overflow: hidden; }
+
+/* ── Typography helpers ─────────────────────── */
+.section-tag {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--green-400);
+  background: var(--green-50);
+  padding: 6px 14px;
+  border-radius: var(--r-full);
+  margin-bottom: var(--s2);
+}
+
+.section-title {
+  font-size: clamp(var(--fs-2xl), 3.5vw, var(--fs-4xl));
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-900);
+  margin-bottom: var(--s2);
+}
+
+.section-desc {
+  font-size: var(--fs-lg);
+  color: var(--text-500);
+  max-width: 56ch;
+}
+
+/* ── Container ──────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--s4);
+}
+
+/* ── Buttons ────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.03em;
+  padding: 14px 32px;
+  border-radius: var(--r-full);
+  transition: var(--ease);
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--green-300);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--green-400);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(84, 139, 40, 0.35);
+}
+.btn-outline {
+  border: 2px solid rgba(255,255,255,0.6);
+  color: var(--white);
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: var(--white);
+  transform: translateY(-2px);
+}
+.btn-outline-dark {
+  border: 2px solid var(--green-300);
+  color: var(--green-300);
+}
+.btn-outline-dark:hover {
+  background: var(--green-300);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ── Fade animations ─────────────────────────── */
+.fade-up, .fade-in, .fade-left, .fade-right {
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up    { transform: translateY(36px); }
+.fade-in    { transform: scale(0.97); }
+.fade-left  { transform: translateX(-36px); }
+.fade-right { transform: translateX(36px); }
+
+.fade-up.visible, .fade-in.visible, .fade-left.visible, .fade-right.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.delay-1 { transition-delay: 0.1s !important; }
+.delay-2 { transition-delay: 0.2s !important; }
+.delay-3 { transition-delay: 0.3s !important; }
+.delay-4 { transition-delay: 0.4s !important; }
+.delay-5 { transition-delay: 0.55s !important; }
+.delay-6 { transition-delay: 0.7s !important; }

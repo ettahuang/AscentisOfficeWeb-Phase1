@@ -1,6 +1,12 @@
 /* =============================================
-   AscentisTech — Design System
-   Palette: White · Grass Green · Wood Grain
+   此檔案已拆分至 css/ 資料夾，不再使用。
+   請參考：
+     css/base.css       — 變數、Reset、按鈕、動畫
+     css/navbar.css     — 導覽列、手機選單
+     css/hero.css       — Hero 首圖區塊
+     css/sections.css   — About / Services / Awards / Benefits / Contact
+     css/footer.css     — Footer、回頂部按鈕
+     css/responsive.css — RWD 媒體查詢
    ============================================= */
 
 /* ── Google Fonts (loaded in HTML) ─────────── */

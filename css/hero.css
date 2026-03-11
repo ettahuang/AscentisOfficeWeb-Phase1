@@ -1,0 +1,167 @@
+/* =============================================
+   hero.css — Hero Section
+   ============================================= */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ── 背景圖片（由 images.js 控制來源）─────── */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+}
+.hero-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(20, 31, 10, 0.72) 0%,
+    rgba(40, 70, 18, 0.55) 50%,
+    rgba(20, 31, 10, 0.65) 100%
+  );
+}
+
+/* subtle wood-grain line texture on overlay */
+.hero-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 4px,
+    rgba(180, 145, 80, 0.04) 4px,
+    rgba(180, 145, 80, 0.04) 5px
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--s4);
+  padding-top: var(--nav-h);
+}
+
+.hero-eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--green-100);
+  margin-bottom: var(--s3);
+}
+
+.hero-title {
+  font-family: 'Playfair Display', 'Noto Serif TC', serif;
+  font-size: clamp(2.8rem, 6vw, var(--fs-6xl));
+  font-weight: 800;
+  line-height: 1.12;
+  color: var(--white);
+  margin-bottom: var(--s3);
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--green-100);
+}
+
+.hero-subtitle {
+  font-size: clamp(var(--fs-base), 1.5vw, var(--fs-lg));
+  color: rgba(255,255,255,0.78);
+  max-width: 52ch;
+  margin-bottom: var(--s5);
+  line-height: 1.8;
+}
+
+.hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+/* Stats bar */
+.hero-stats {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 2;
+  display: flex;
+  background: rgba(255,255,255,0.10);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.hero-stat {
+  flex: 1;
+  text-align: center;
+  padding: var(--s3) var(--s4);
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+.hero-stat:last-child { border-right: none; }
+.stat-number {
+  font-size: var(--fs-3xl);
+  font-weight: 900;
+  color: var(--green-100);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.65);
+  text-transform: uppercase;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 100px;
+  right: var(--s6);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.scroll-line {
+  width: 1px;
+  height: 60px;
+  background: rgba(255,255,255,0.3);
+  position: relative;
+  overflow: hidden;
+  border-radius: 1px;
+}
+.scroll-line::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--green-200);
+  animation: scrollDown 2s ease-in-out infinite;
+}
+@keyframes scrollDown {
+  0%   { top: -100%; }
+  100% { top: 200%; }
+}
+.scroll-text {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  writing-mode: vertical-lr;
+}

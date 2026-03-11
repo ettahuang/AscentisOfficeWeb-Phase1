@@ -2,6 +2,14 @@
 //  AscentisTech — Main Script
 // =============================================
 
+// ── 套用 images.js 的圖片設定 ───────────────
+if (typeof SITE_IMAGES !== 'undefined') {
+  document.querySelectorAll('[data-img]').forEach(img => {
+    const key = img.getAttribute('data-img');
+    if (SITE_IMAGES[key]) img.src = SITE_IMAGES[key];
+  });
+}
+
 let currentLang = localStorage.getItem('lang') || 'en';
 
 // ── Apply translations ──────────────────────

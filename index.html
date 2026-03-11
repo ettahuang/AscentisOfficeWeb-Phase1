@@ -20,7 +20,13 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <!-- CSS — 各區段獨立檔案，方便維護 -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
 </head>
 <body>
 
@@ -70,7 +76,9 @@
        ========================================= -->
   <section id="hero" class="hero">
     <div class="hero-bg">
+      <!-- 換圖片：修改 images.js 裡的 hero 路徑 -->
       <img
+        data-img="hero"
         src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=85"
         alt="AscentisTech team collaboration"
       />
@@ -128,7 +136,9 @@
       <div class="about-img-wrap fade-left">
         <div class="about-deco"></div>
         <div class="about-img-frame">
+          <!-- 換圖片：修改 images.js 裡的 about 路徑 -->
           <img
+            data-img="about"
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
             alt="AscentisTech modern office"
           />
@@ -518,6 +528,8 @@
     <i class="fa-solid fa-chevron-up"></i>
   </button>
 
+  <!-- images.js 必須在 script.js 之前載入 -->
+  <script src="images.js"></script>
   <script src="i18n.js"></script>
   <script src="script.js"></script>
 </body>

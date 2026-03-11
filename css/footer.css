@@ -1,0 +1,124 @@
+/* =============================================
+   footer.css — Footer · Scroll-to-Top Button
+   ============================================= */
+
+.footer {
+  background: var(--dark-900);
+  padding: var(--s6) 0 var(--s3);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 8px,
+      rgba(184, 147, 90, 0.03) 8px,
+      rgba(184, 147, 90, 0.03) 9px
+    );
+}
+
+.footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--s4);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--s4);
+  padding-bottom: var(--s5);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: var(--s4);
+}
+
+.footer-brand .logo-text { font-size: var(--fs-xl); color: var(--white); }
+.footer-brand-desc {
+  font-size: var(--fs-sm);
+  color: rgba(255,255,255,0.45);
+  margin-top: var(--s2);
+  line-height: 1.7;
+  max-width: 28ch;
+}
+
+.footer-nav h4, .footer-contact-col h4 {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: var(--s2);
+}
+.footer-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-nav a {
+  font-size: var(--fs-sm);
+  color: rgba(255,255,255,0.55);
+  transition: color var(--ease);
+}
+.footer-nav a:hover { color: var(--green-200); }
+
+.footer-contact-col p {
+  font-size: var(--fs-sm);
+  color: rgba(255,255,255,0.45);
+  line-height: 1.7;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+.footer-copy {
+  font-size: var(--fs-xs);
+  color: rgba(255,255,255,0.3);
+}
+.footer-social {
+  display: flex;
+  gap: var(--s1);
+}
+.footer-social a {
+  width: 36px; height: 36px;
+  border-radius: var(--r-full);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.45);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--fs-sm);
+  transition: var(--ease);
+}
+.footer-social a:hover {
+  border-color: var(--green-300);
+  color: var(--green-200);
+  background: rgba(114, 173, 64, 0.12);
+}
+
+/* ── Scroll-to-Top Button ───────────────────── */
+#scrollTop {
+  position: fixed;
+  bottom: var(--s4);
+  right: var(--s4);
+  width: 44px; height: 44px;
+  border-radius: var(--r-full);
+  background: var(--green-300);
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity var(--ease), transform var(--ease);
+  z-index: 900;
+}
+#scrollTop.visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+#scrollTop:hover {
+  background: var(--green-400);
+  transform: translateY(-2px);
+}
