@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AscentisTech | Leading Innovation in Software Development</title>
+  <meta name="description" content="AscentisTech - Building world-leading online software development platforms, providing system development, data analytics, and AI technology solutions" />
+  <meta name="keywords" content="AscentisTech, software development, AI, system development, data analytics" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AscentisTech | Leading Innovation in Software Development" />
+  <meta property="og:description" content="Focused on building world-leading online software development platforms." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- =========================================
+       NAVBAR
+       ========================================= -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="logo-mark">A</div>
+        <span class="logo-text">AscentisTech</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about"    data-i18n="nav.about">About Us</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#awards"   data-i18n="nav.awards">Awards</a>
+        <a href="#benefits" data-i18n="nav.benefits">Benefits</a>
+        <a href="#contact"  data-i18n="nav.contact">Contact</a>
+      </div>
+
+      <div class="nav-right">
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+          <span class="lang-en active">EN</span>
+          <span class="lang-sep">/</span>
+          <span class="lang-zh">中</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about"    data-i18n="nav.about">About Us</a>
+    <a href="#services" data-i18n="nav.services">Services</a>
+    <a href="#awards"   data-i18n="nav.awards">Awards</a>
+    <a href="#benefits" data-i18n="nav.benefits">Benefits</a>
+    <a href="#contact"  data-i18n="nav.contact">Contact</a>
+  </div>
+
+
+  <!-- =========================================
+       HERO
+       ========================================= -->
+  <section id="hero" class="hero">
+    <div class="hero-bg">
+      <img
+        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=85"
+        alt="AscentisTech team collaboration"
+      />
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow fade-up">AscentisTech &nbsp;·&nbsp; Singapore &amp; Taiwan</p>
+      <h1 class="hero-title fade-up delay-1">
+        <span data-i18n="hero.title.line1">Leading Innovation</span><br />
+        <em data-i18n="hero.title.line2">Building the Future</em>
+      </h1>
+      <p class="hero-subtitle fade-up delay-2" data-i18n="hero.subtitle">
+        Focused on building world-leading online software development platforms.
+        Driving digital transformation through technological innovation
+      </p>
+      <div class="hero-btns fade-up delay-3">
+        <a href="#services" class="btn btn-primary">
+          <i class="fa-solid fa-arrow-right"></i>
+          <span data-i18n="hero.cta.explore">Explore Services</span>
+        </a>
+        <a href="#contact" class="btn btn-outline" data-i18n="hero.cta.contact">Contact Us</a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="stat-number" data-count="65">0</div>
+        <div class="stat-label" data-i18n="hero.stat.experts">Professionals</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-number" data-count="4">0</div>
+        <div class="stat-label" data-i18n="hero.stat.awards">Agile Awards</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-number" style="font-size: clamp(1.4rem, 3vw, 2.25rem);">24/7</div>
+        <div class="stat-label" data-i18n="hero.stat.support">Tech Support</div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span class="scroll-text">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+
+  <!-- =========================================
+       ABOUT
+       ========================================= -->
+  <section id="about" class="about">
+    <div class="about-grid">
+
+      <!-- Image side -->
+      <div class="about-img-wrap fade-left">
+        <div class="about-deco"></div>
+        <div class="about-img-frame">
+          <img
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+            alt="AscentisTech modern office"
+          />
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-year">2025</div>
+          <div class="about-badge-label">Taiwan<br />Agile Awards</div>
+        </div>
+      </div>
+
+      <!-- Content side -->
+      <div class="fade-right">
+        <span class="section-tag" data-i18n="nav.about">About Us</span>
+        <h2 class="section-title" data-i18n="about.title">About AscentisTech</h2>
+        <p class="section-desc" data-i18n="about.desc">
+          A team of elite talents with technical and data backgrounds, dedicated to creating exceptional software solutions
+        </p>
+
+        <div class="about-cards">
+          <div class="about-card">
+            <div class="about-card-icon"><i class="fa-solid fa-users"></i></div>
+            <div>
+              <h4 data-i18n="about.card1.title">Professional Team</h4>
+              <p data-i18n="about.card1.desc">Elite talents with technical and data backgrounds, capable of high-performance architecture design and multi-language support</p>
+            </div>
+          </div>
+          <div class="about-card">
+            <div class="about-card-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+            <div>
+              <h4 data-i18n="about.card2.title">Self-Organizing Culture</h4>
+              <p data-i18n="about.card2.desc">Valuing teamwork, encouraging open communication, proactive participation, and cross-domain training</p>
+            </div>
+          </div>
+          <div class="about-card">
+            <div class="about-card-icon"><i class="fa-solid fa-rocket"></i></div>
+            <div>
+              <h4 data-i18n="about.card3.title">Pursuit of Excellence</h4>
+              <p data-i18n="about.card3.desc">Embracing AI technologies and innovative development methods, pursuing efficiency and flexibility</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mission-box">
+          <h3 data-i18n="about.mission.title">Our Mission</h3>
+          <p data-i18n="about.mission.desc">AscentisTech focuses on developing and maintaining large-scale multinational websites. Through excellent technical capabilities and agile organizational culture, we provide the highest quality software development services to global clients. We believe that innovation and collaboration are the keys to driving business success.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================
+       SERVICES
+       ========================================= -->
+  <section id="services" class="services">
+    <div class="services-header fade-up">
+      <span class="section-tag" data-i18n="nav.services">Services</span>
+      <h2 class="section-title" data-i18n="services.title">Products &amp; Services</h2>
+      <p class="section-desc" data-i18n="services.desc">Providing integrated one-stop solutions to help clients expand into global markets</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Card 1 -->
+      <div class="service-card fade-up delay-1">
+        <div class="service-num">01</div>
+        <div class="service-icon">
+          <i class="fa-solid fa-server"></i>
+        </div>
+        <h3 data-i18n="services.card1.title">System Development &amp; Technical Support</h3>
+        <p data-i18n="services.card1.desc">Providing 24/7 technical support, high-quality system planning and deployment to ensure your business continuity</p>
+        <ul class="service-features">
+          <li class="service-feature" data-i18n="services.card1.feature1">24/7 Support</li>
+          <li class="service-feature" data-i18n="services.card1.feature2">High-Performance Architecture</li>
+          <li class="service-feature" data-i18n="services.card1.feature3">Rapid Deployment</li>
+        </ul>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card fade-up delay-2">
+        <div class="service-num">02</div>
+        <div class="service-icon">
+          <i class="fa-solid fa-chart-bar"></i>
+        </div>
+        <h3 data-i18n="services.card2.title">Data Analytics &amp; Support</h3>
+        <p data-i18n="services.card2.desc">Optimizing product experience and driving business decisions through data integration and modular analysis tools</p>
+        <ul class="service-features">
+          <li class="service-feature" data-i18n="services.card2.feature1">Data Visualization</li>
+          <li class="service-feature" data-i18n="services.card2.feature2">Business Intelligence Reports</li>
+          <li class="service-feature" data-i18n="services.card2.feature3">Predictive Analytics</li>
+        </ul>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card fade-up delay-3">
+        <div class="service-num">03</div>
+        <div class="service-icon">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <h3 data-i18n="services.card3.title">AI Technology Integration</h3>
+        <p data-i18n="services.card3.desc">Developing recommendation systems and anomaly detection to enhance platform intelligence and user experience</p>
+        <ul class="service-features">
+          <li class="service-feature" data-i18n="services.card3.feature1">Smart Recommendation Engine</li>
+          <li class="service-feature" data-i18n="services.card3.feature2">Anomaly Detection</li>
+          <li class="service-feature" data-i18n="services.card3.feature3">Process Automation</li>
+        </ul>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card fade-up delay-4">
+        <div class="service-num">04</div>
+        <div class="service-icon">
+          <i class="fa-solid fa-globe"></i>
+        </div>
+        <h3 data-i18n="services.card4.title">Comprehensive Platform Strategy</h3>
+        <p data-i18n="services.card4.desc">Custom-built global software development platforms aligned with local operations to expand international markets</p>
+        <ul class="service-features">
+          <li class="service-feature" data-i18n="services.card4.feature1">Multi-Language Support</li>
+          <li class="service-feature" data-i18n="services.card4.feature2">Localization Strategy</li>
+          <li class="service-feature" data-i18n="services.card4.feature3">Global Deployment</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================
+       AWARDS
+       ========================================= -->
+  <section id="awards" class="awards">
+    <div class="awards-header fade-up">
+      <span class="section-tag">2025</span>
+      <h2 class="section-title" data-i18n="awards.title">Honors &amp; Achievements</h2>
+      <p class="section-desc" data-i18n="awards.desc">Multiple honors at the 2025 Taiwan Agile Awards</p>
+    </div>
+
+    <div class="awards-grid">
+
+      <div class="award-card fade-up delay-1">
+        <div class="award-num">01</div>
+        <div class="award-icon"><i class="fa-solid fa-building"></i></div>
+        <h3 data-i18n="awards.item1.title">Agile Organization of the Year</h3>
+        <p data-i18n="awards.item1.desc">Recognizing outstanding achievements in organizational agile transformation</p>
+      </div>
+
+      <div class="award-card fade-up delay-2">
+        <div class="award-num">02</div>
+        <div class="award-icon"><i class="fa-solid fa-people-group"></i></div>
+        <h3 data-i18n="awards.item2.title">Agile Team of the Year</h3>
+        <p data-i18n="awards.item2.desc">Acknowledging team collaboration efficiency and delivery quality</p>
+      </div>
+
+      <div class="award-card fade-up delay-3">
+        <div class="award-num">03</div>
+        <div class="award-icon"><i class="fa-solid fa-bolt"></i></div>
+        <h3 data-i18n="awards.item3.title">Change Leader of the Year</h3>
+        <p data-i18n="awards.item3.desc">Praising leadership in driving organizational change</p>
+      </div>
+
+      <div class="award-card fade-up delay-4">
+        <div class="award-num">04</div>
+        <div class="award-icon"><i class="fa-solid fa-megaphone"></i></div>
+        <h3 data-i18n="awards.item4.title">Agile Evangelist of the Year</h3>
+        <p data-i18n="awards.item4.desc">Honoring contributions to spreading agile principles</p>
+      </div>
+
+    </div>
+
+    <!-- Banner -->
+    <div class="awards-banner fade-up delay-5">
+      <div class="awards-banner-inner">
+        <div class="banner-text">
+          <h3 data-i18n="awards.banner.title">Continuous Innovation, Pursuit of Excellence</h3>
+          <p data-i18n="awards.banner.desc">With agile culture at our core, we continuously break through boundaries to create maximum value for our clients</p>
+        </div>
+        <div class="banner-icon">🏆</div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       BENEFITS
+       ========================================= -->
+  <section id="benefits" class="benefits">
+    <div class="benefits-header fade-up">
+      <span class="section-tag" data-i18n="nav.benefits">Benefits</span>
+      <h2 class="section-title" data-i18n="benefits.title">Employee Benefits</h2>
+      <p class="section-desc" data-i18n="benefits.desc">Comprehensive benefits system for a happy workplace</p>
+    </div>
+
+    <div class="benefits-grid">
+
+      <!-- Bonuses -->
+      <div class="benefit-card fade-up delay-1">
+        <div class="benefit-icon"><i class="fa-solid fa-gift"></i></div>
+        <h3 data-i18n="benefits.cat1.title">Bonuses &amp; Gifts</h3>
+        <ul class="benefit-items">
+          <li class="benefit-item" data-i18n="benefits.cat1.item1">Year-End Bonus</li>
+          <li class="benefit-item" data-i18n="benefits.cat1.item2">Festival Bonuses / Gifts</li>
+        </ul>
+      </div>
+
+      <!-- Leave -->
+      <div class="benefit-card fade-up delay-2">
+        <div class="benefit-icon"><i class="fa-solid fa-calendar-days"></i></div>
+        <h3 data-i18n="benefits.cat2.title">Leave Policy</h3>
+        <ul class="benefit-items">
+          <li class="benefit-item" data-i18n="benefits.cat2.item1">Weekends Off</li>
+          <li class="benefit-item" data-i18n="benefits.cat2.item2">Birthday Leave</li>
+          <li class="benefit-item" data-i18n="benefits.cat2.item3">Paid Sick Leave</li>
+          <li class="benefit-item" data-i18n="benefits.cat2.item4">Extra Annual Leave</li>
+        </ul>
+      </div>
+
+      <!-- Office Perks -->
+      <div class="benefit-card fade-up delay-3">
+        <div class="benefit-icon"><i class="fa-solid fa-mug-hot"></i></div>
+        <h3 data-i18n="benefits.cat3.title">Office Perks</h3>
+        <ul class="benefit-items">
+          <li class="benefit-item" data-i18n="benefits.cat3.item1">Snack Bar</li>
+          <li class="benefit-item" data-i18n="benefits.cat3.item2">Coffee Bar</li>
+          <li class="benefit-item" data-i18n="benefits.cat3.item3">Free Afternoon Tea</li>
+          <li class="benefit-item" data-i18n="benefits.cat3.item4">Employee Massage</li>
+        </ul>
+      </div>
+
+      <!-- Events -->
+      <div class="benefit-card fade-up delay-4">
+        <div class="benefit-icon"><i class="fa-solid fa-plane-departure"></i></div>
+        <h3 data-i18n="benefits.cat4.title">Events &amp; Subsidies</h3>
+        <ul class="benefit-items">
+          <li class="benefit-item" data-i18n="benefits.cat4.item1">Travel Subsidy</li>
+          <li class="benefit-item" data-i18n="benefits.cat4.item2">International Travel</li>
+          <li class="benefit-item" data-i18n="benefits.cat4.item3">Team Dinners</li>
+          <li class="benefit-item" data-i18n="benefits.cat4.item4">Birthday Parties</li>
+        </ul>
+      </div>
+
+      <!-- Care -->
+      <div class="benefit-card fade-up delay-5">
+        <div class="benefit-icon"><i class="fa-solid fa-heart"></i></div>
+        <h3 data-i18n="benefits.cat5.title">Care Allowances</h3>
+        <ul class="benefit-items">
+          <li class="benefit-item" data-i18n="benefits.cat5.item1">Wedding Gift</li>
+          <li class="benefit-item" data-i18n="benefits.cat5.item2">Birth Allowance</li>
+          <li class="benefit-item" data-i18n="benefits.cat5.item3">Hospitalization Allowance</li>
+        </ul>
+      </div>
+
+      <!-- Insurance -->
+      <div class="benefit-card fade-up delay-6">
+        <div class="benefit-icon"><i class="fa-solid fa-shield-heart"></i></div>
+        <h3 data-i18n="benefits.cat6.title">Insurance</h3>
+        <ul class="benefit-items">
+          <li class="benefit-item" data-i18n="benefits.cat6.item1">Labor &amp; Health Insurance</li>
+          <li class="benefit-item" data-i18n="benefits.cat6.item2">Group Insurance</li>
+          <li class="benefit-item" data-i18n="benefits.cat6.item3">Health Checkup</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================
+       CONTACT
+       ========================================= -->
+  <section id="contact" class="contact">
+    <div class="contact-grid">
+
+      <!-- Info side -->
+      <div class="fade-left">
+        <div class="contact-info-header">
+          <span class="section-tag" data-i18n="nav.contact">Contact</span>
+          <h2 class="section-title" data-i18n="contact.title">Contact Us</h2>
+          <p class="section-desc" data-i18n="contact.desc">Get in touch with us to explore endless possibilities</p>
+        </div>
+
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="contact-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <div class="contact-card-label" data-i18n="contact.address.title">Office Address</div>
+              <div class="contact-card-value" data-i18n="contact.address.value">7F, No. 103, Ruihu St., Neihu Dist., Taipei City, Taiwan</div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <div>
+              <div class="contact-card-label" data-i18n="contact.industry.title">Industry</div>
+              <div class="contact-card-value" data-i18n="contact.industry.value">Computer Software Services</div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon"><i class="fa-solid fa-people-arrows"></i></div>
+            <div>
+              <div class="contact-card-label" data-i18n="contact.team.title">Team Size</div>
+              <div class="contact-card-value" data-i18n="contact.team.value">65 Professional Partners</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-social">
+          <div class="contact-social-title" data-i18n="contact.social.title">Follow Us</div>
+          <div class="social-links">
+            <a href="https://www.facebook.com/AscentisTech" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/ascentistech" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map side -->
+      <div class="contact-map-wrap fade-right">
+        <iframe
+          title="AscentisTech Office Location"
+          src="https://maps.google.com/maps?q=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%85%A7%E6%B9%96%E5%8D%80%E7%91%9E%E6%B9%96%E8%A1%97103%E8%99%9F&output=embed&z=16"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================
+       FOOTER
+       ========================================= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="logo-mark">A</div>
+            <span class="logo-text">AscentisTech</span>
+          </div>
+          <p class="footer-brand-desc" data-i18n="footer.slogan">Leading Innovation, Building the Future</p>
+        </div>
+
+        <!-- Nav links -->
+        <nav class="footer-nav">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#about"    data-i18n="nav.about">About Us</a></li>
+            <li><a href="#services" data-i18n="nav.services">Services</a></li>
+            <li><a href="#awards"   data-i18n="nav.awards">Awards</a></li>
+            <li><a href="#benefits" data-i18n="nav.benefits">Benefits</a></li>
+            <li><a href="#contact"  data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Contact info -->
+        <div class="footer-contact-col">
+          <h4>Contact</h4>
+          <p data-i18n="contact.address.value">7F, No. 103, Ruihu St., Neihu Dist., Taipei City, Taiwan</p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy" data-i18n="footer.copyright">© 2026 AscentisTech. All Rights Reserved.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/AscentisTech" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/ascentistech" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll-to-top -->
+  <button id="scrollTop" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
