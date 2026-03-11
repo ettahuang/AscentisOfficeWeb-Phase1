@@ -3,15 +3,15 @@
    ============================================= */
 
 .footer {
-  background: var(--dark-900);
+  background: var(--blue-900);
   padding: var(--s6) 0 var(--s3);
   background-image:
     repeating-linear-gradient(
       0deg,
       transparent,
       transparent 8px,
-      rgba(184, 147, 90, 0.03) 8px,
-      rgba(184, 147, 90, 0.03) 9px
+      rgba(74, 135, 224, 0.04) 8px,
+      rgba(74, 135, 224, 0.04) 9px
     );
 }
 
@@ -30,7 +30,16 @@
   margin-bottom: var(--s4);
 }
 
-.footer-brand .logo-text { font-size: var(--fs-xl); color: var(--white); }
+/* Footer Logo */
+.footer-logo-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  /* lighten logo on dark bg */
+  filter: brightness(0) invert(1) opacity(0.9);
+}
+
 .footer-brand-desc {
   font-size: var(--fs-sm);
   color: rgba(255,255,255,0.45);
@@ -44,7 +53,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.38);
   margin-bottom: var(--s2);
 }
 .footer-nav ul {
@@ -54,10 +63,10 @@
 }
 .footer-nav a {
   font-size: var(--fs-sm);
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.52);
   transition: color var(--ease);
 }
-.footer-nav a:hover { color: var(--green-200); }
+.footer-nav a:hover { color: var(--blue-300); }
 
 .footer-contact-col p {
   font-size: var(--fs-sm);
@@ -74,7 +83,7 @@
 }
 .footer-copy {
   font-size: var(--fs-xs);
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.28);
 }
 .footer-social {
   display: flex;
@@ -84,15 +93,15 @@
   width: 36px; height: 36px;
   border-radius: var(--r-full);
   border: 1px solid rgba(255,255,255,0.12);
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.42);
   display: flex; align-items: center; justify-content: center;
   font-size: var(--fs-sm);
   transition: var(--ease);
 }
 .footer-social a:hover {
-  border-color: var(--green-300);
-  color: var(--green-200);
-  background: rgba(114, 173, 64, 0.12);
+  border-color: var(--blue-400);
+  color: var(--blue-300);
+  background: rgba(74, 135, 224, 0.14);
 }
 
 /* ── Scroll-to-Top Button ───────────────────── */
@@ -102,7 +111,7 @@
   right: var(--s4);
   width: 44px; height: 44px;
   border-radius: var(--r-full);
-  background: var(--green-300);
+  background: var(--blue-600);
   color: var(--white);
   display: flex; align-items: center; justify-content: center;
   font-size: 1rem;
@@ -119,6 +128,6 @@
   pointer-events: auto;
 }
 #scrollTop:hover {
-  background: var(--green-400);
+  background: var(--blue-700);
   transform: translateY(-2px);
 }

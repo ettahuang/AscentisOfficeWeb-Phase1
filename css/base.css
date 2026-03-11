@@ -1,58 +1,63 @@
 /* =============================================
    base.css — CSS Variables · Reset · Typography
    Buttons · Animations · Container
+   Theme: Blue & White · Grass Green · Yellow
    ============================================= */
 
-/* ── Google Fonts (loaded in HTML) ─────────── */
-
-/* ── CSS Variables ─────────────────────────── */
 :root {
-  /* White / Cream */
-  --white:        #FFFFFF;
-  --cream-50:     #FDFBF7;
-  --cream-100:    #F6F1E7;
-  --cream-200:    #EBE3D0;
-  --cream-300:    #D9CEBC;
+  /* ── Blue Palette ──────────────────────────── */
+  --blue-900:  #060D1B;
+  --blue-800:  #0D1F3C;
+  --blue-700:  #1B3A6B;
+  --blue-600:  #1E4DA1;   /* primary brand blue */
+  --blue-500:  #2E6ACC;
+  --blue-400:  #4A87E0;
+  --blue-300:  #7AADF0;
+  --blue-200:  #B3CFFE;
+  --blue-100:  #D6E6FF;
+  --blue-50:   #EBF2FF;
 
-  /* Grass Green */
-  --green-50:     #EEF7E4;
-  --green-100:    #CEEAAA;
-  --green-200:    #A0CE6E;
-  --green-300:    #72AD40;   /* primary */
-  --green-400:    #548B28;
-  --green-500:    #386B12;
-  --green-600:    #1E4606;
+  /* ── Grass Green (accent text / tags) ─────── */
+  --green-600: #1B5E20;
+  --green-500: #2E7D32;
+  --green-400: #388E3C;
+  --green-300: #4CAF50;   /* primary green */
+  --green-200: #81C784;
+  --green-100: #C8E6C9;
+  --green-50:  #E8F5E9;
 
-  /* Wood / Warm Tan */
-  --wood-50:      #FAF5EC;
-  --wood-100:     #EFE0C2;
-  --wood-200:     #D4B88A;
-  --wood-300:     #B8935A;   /* accent */
-  --wood-400:     #946E38;
-  --wood-500:     #6E4E1E;
-  --wood-600:     #4A3210;
+  /* ── Yellow (highlight / stats) ───────────── */
+  --yellow-500: #D97706;
+  --yellow-400: #F59E0B;
+  --yellow-300: #FBBF24;
+  --yellow-200: #FDE68A;
+  --yellow-100: #FEF3C7;
+  --yellow-50:  #FFFBEB;
 
-  /* Dark (forest) */
-  --dark-900:     #141F0A;
-  --dark-800:     #1C2C0E;
-  --dark-700:     #243718;
+  /* ── Neutral / White ───────────────────────── */
+  --white:      #FFFFFF;
+  --gray-50:    #F8FAFC;
+  --gray-100:   #F1F5F9;
+  --gray-200:   #E2E8F0;
+  --gray-300:   #CBD5E1;
+  --gray-400:   #94A3B8;
 
-  /* Text */
-  --text-900:     #1A1209;
-  --text-700:     #3C2E1A;
-  --text-500:     #6A5A42;
-  --text-300:     #A09078;
-  --text-100:     #CEC4B4;
+  /* ── Text ──────────────────────────────────── */
+  --text-900:   #0B1828;
+  --text-700:   #1E3A5F;
+  --text-500:   #4A6FA5;
+  --text-300:   #8AAAD0;
+  --text-100:   #C0D3E8;
 
-  /* Semantic */
-  --primary:      var(--green-300);
-  --primary-dark: var(--green-400);
-  --accent:       var(--wood-300);
+  /* ── Semantic ──────────────────────────────── */
+  --primary:      var(--blue-600);
+  --primary-dark: var(--blue-700);
+  --accent:       var(--yellow-400);
   --bg:           var(--white);
-  --bg-alt:       var(--cream-100);
-  --bg-deep:      var(--dark-800);
+  --bg-alt:       var(--blue-50);
+  --bg-deep:      var(--blue-700);
 
-  /* Spacing */
+  /* ── Spacing ───────────────────────────────── */
   --s1: 0.5rem;
   --s2: 1rem;
   --s3: 1.5rem;
@@ -62,7 +67,7 @@
   --s7: 6rem;
   --s8: 8rem;
 
-  /* Typography scale */
+  /* ── Typography scale ──────────────────────── */
   --fs-xs:   0.75rem;
   --fs-sm:   0.875rem;
   --fs-base: 1rem;
@@ -74,23 +79,23 @@
   --fs-5xl:  4rem;
   --fs-6xl:  5.5rem;
 
-  /* Radii */
-  --r-sm:  8px;
-  --r-md:  16px;
-  --r-lg:  24px;
-  --r-xl:  40px;
+  /* ── Radii ──────────────────────────────────── */
+  --r-sm:   8px;
+  --r-md:   16px;
+  --r-lg:   24px;
+  --r-xl:   40px;
   --r-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(60, 46, 26, 0.07);
-  --shadow-md: 0 6px 24px rgba(60, 46, 26, 0.11);
-  --shadow-lg: 0 16px 48px rgba(60, 46, 26, 0.16);
+  /* ── Shadows ─────────────────────────────────── */
+  --shadow-sm: 0 2px 8px rgba(13, 31, 60, 0.08);
+  --shadow-md: 0 6px 24px rgba(13, 31, 60, 0.13);
+  --shadow-lg: 0 16px 48px rgba(13, 31, 60, 0.18);
 
-  /* Transitions */
-  --ease: 0.3s ease;
+  /* ── Transitions ──────────────────────────────── */
+  --ease:      0.3s ease;
   --ease-slow: 0.6s ease;
 
-  /* Layout */
+  /* ── Layout ────────────────────────────────────── */
   --max-w: 1240px;
   --nav-h: 76px;
 }
@@ -110,7 +115,6 @@ a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 button { cursor: pointer; border: none; background: none; font: inherit; }
 
-/* ── Scroll lock when mobile menu open ─────── */
 body.menu-open { overflow: hidden; }
 
 /* ── Typography helpers ─────────────────────── */
@@ -120,7 +124,7 @@ body.menu-open { overflow: hidden; }
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--green-400);
+  color: var(--green-500);
   background: var(--green-50);
   padding: 6px 14px;
   border-radius: var(--r-full);
@@ -163,16 +167,16 @@ body.menu-open { overflow: hidden; }
   white-space: nowrap;
 }
 .btn-primary {
-  background: var(--green-300);
+  background: var(--blue-600);
   color: var(--white);
 }
 .btn-primary:hover {
-  background: var(--green-400);
+  background: var(--blue-700);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(84, 139, 40, 0.35);
+  box-shadow: 0 8px 24px rgba(30, 77, 161, 0.4);
 }
 .btn-outline {
-  border: 2px solid rgba(255,255,255,0.6);
+  border: 2px solid rgba(255,255,255,0.65);
   color: var(--white);
 }
 .btn-outline:hover {
@@ -181,11 +185,11 @@ body.menu-open { overflow: hidden; }
   transform: translateY(-2px);
 }
 .btn-outline-dark {
-  border: 2px solid var(--green-300);
-  color: var(--green-300);
+  border: 2px solid var(--blue-600);
+  color: var(--blue-600);
 }
 .btn-outline-dark:hover {
-  background: var(--green-300);
+  background: var(--blue-600);
   color: var(--white);
   transform: translateY(-2px);
 }

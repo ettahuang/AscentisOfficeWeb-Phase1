@@ -6,16 +6,32 @@
 //  2. 將下方對應的路徑改成 'images/hero.jpg'
 //  3. 存檔並推上 GitHub，網頁自動更新
 //
-//  也可以直接填網址，例如：
+//  也可以直接填網址：
 //  hero: 'https://example.com/my-photo.jpg'
 // =============================================
 
 const SITE_IMAGES = {
 
-  // ── Hero 首頁背景圖（全螢幕）──────────────
-  hero: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=85',
+  // ── Logo（來源：104 公司頁）────────────────
+  logo: 'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/logo.png?v=20260304161209',
+
+  // ── Hero 首頁背景圖（全螢幕）─────────────
+  //    可換成任一下方公司環境照
+  hero: 'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_966243507386551216.jpg?v=20260304161209',
 
   // ── About 關於我們（左側直式圖片）────────
-  about: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80'
+  about: 'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_894196076798065527.jpg?v=20260304161209',
+
+  // ── 公司環境照（10張，可自行替換上面的 hero/about）
+  // env1:  'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_894196076798065527.jpg?v=20260304161209',
+  // env2:  'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_894196076798065528.jpg?v=20260304161209',
+  // env3:  'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_966243507386551216.jpg?v=20260304161209',
+  // env4:  'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_894196076798065529.jpg?v=20260304161209',
+  // env5:  'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_966243507386551217.jpg?v=20260304161209',
+  // env6:  'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_894196076798065530.jpg?v=20260304161209',
+  // env7:  'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_966243507386551218.jpg?v=20260304161209',
+  // env8:  'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_894196076798065531.jpg?v=20260304161209',
+  // env9:  'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_966243507386551219.jpg?v=20260304161209',
+  // env10: 'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_894196076798065532.jpg?v=20260304161209',
 
 };

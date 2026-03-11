@@ -12,7 +12,7 @@
   transition: background var(--ease), box-shadow var(--ease);
 }
 .navbar.scrolled {
-  background: rgba(255,255,255,0.96);
+  background: rgba(255,255,255,0.97);
   backdrop-filter: blur(12px);
   box-shadow: var(--shadow-sm);
 }
@@ -27,31 +27,28 @@
   gap: var(--s4);
 }
 
+/* ── Logo ─────────────────────────────────── */
 .nav-logo {
   display: flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
-}
-.logo-mark {
-  width: 40px; height: 40px;
-  border-radius: var(--r-sm);
-  background: var(--green-300);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 900;
-  font-size: 1.2rem;
-  color: var(--white);
-  letter-spacing: -1px;
   flex-shrink: 0;
 }
-.logo-text {
-  font-weight: 800;
-  font-size: var(--fs-base);
-  color: var(--white);
-  transition: color var(--ease);
+.logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  /* 白底版 logo 在透明navbar上加一點亮度 */
+  filter: brightness(1.05);
+  transition: filter var(--ease);
 }
-.navbar.scrolled .logo-text { color: var(--text-900); }
+.navbar.scrolled .logo-img {
+  filter: none;
+}
 
+/* ── Nav Links ────────────────────────────── */
 .nav-links {
   display: flex;
   align-items: center;
@@ -61,7 +58,7 @@
 .nav-links a {
   font-size: var(--fs-sm);
   font-weight: 600;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.9);
   transition: color var(--ease);
   position: relative;
   padding-bottom: 4px;
@@ -71,7 +68,7 @@
   position: absolute;
   bottom: 0; left: 0;
   width: 0; height: 2px;
-  background: var(--green-300);
+  background: var(--yellow-300);
   transition: width var(--ease);
   border-radius: 2px;
 }
@@ -80,7 +77,8 @@
 
 .navbar.scrolled .nav-links a { color: var(--text-500); }
 .navbar.scrolled .nav-links a:hover,
-.navbar.scrolled .nav-links a.active { color: var(--green-400); }
+.navbar.scrolled .nav-links a.active { color: var(--blue-600); }
+.navbar.scrolled .nav-links a::after { background: var(--blue-600); }
 
 .nav-right {
   display: flex;
@@ -89,6 +87,7 @@
   margin-left: var(--s3);
 }
 
+/* ── Language Toggle ──────────────────────── */
 .lang-toggle {
   display: flex;
   align-items: center;
@@ -96,14 +95,14 @@
   font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.65);
   background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.25);
   border-radius: var(--r-full);
   padding: 6px 16px;
   transition: var(--ease);
 }
-.lang-toggle:hover { background: rgba(255,255,255,0.2); }
+.lang-toggle:hover { background: rgba(255,255,255,0.22); }
 .lang-toggle .active {
   color: var(--white);
   font-weight: 800;
@@ -112,12 +111,12 @@
 
 .navbar.scrolled .lang-toggle {
   color: var(--text-500);
-  background: var(--cream-100);
-  border-color: var(--cream-200);
+  background: var(--gray-100);
+  border-color: var(--gray-200);
 }
-.navbar.scrolled .lang-toggle .active { color: var(--green-400); }
+.navbar.scrolled .lang-toggle .active { color: var(--blue-600); }
 
-/* Hamburger */
+/* ── Hamburger ────────────────────────────── */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -137,7 +136,7 @@
 .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Mobile menu */
+/* ── Mobile Menu ──────────────────────────── */
 .mobile-menu {
   position: fixed;
   inset: 0;
@@ -164,4 +163,4 @@
   color: var(--text-700);
   transition: color var(--ease);
 }
-.mobile-menu a:hover { color: var(--green-300); }
+.mobile-menu a:hover { color: var(--blue-600); }

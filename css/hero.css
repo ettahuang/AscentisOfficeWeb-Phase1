@@ -20,31 +20,32 @@
 .hero-bg img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 40%;
 }
 
+/* ── 藍色漸層遮罩 ─────────────────────────── */
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(20, 31, 10, 0.72) 0%,
-    rgba(40, 70, 18, 0.55) 50%,
-    rgba(20, 31, 10, 0.65) 100%
+    rgba(6, 13, 27, 0.82) 0%,
+    rgba(13, 31, 60, 0.68) 45%,
+    rgba(27, 58, 107, 0.60) 100%
   );
 }
 
-/* subtle wood-grain line texture on overlay */
+/* subtle diagonal line texture */
 .hero-overlay::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image: repeating-linear-gradient(
-    0deg,
+    -45deg,
     transparent,
-    transparent 4px,
-    rgba(180, 145, 80, 0.04) 4px,
-    rgba(180, 145, 80, 0.04) 5px
+    transparent 8px,
+    rgba(74, 135, 224, 0.04) 8px,
+    rgba(74, 135, 224, 0.04) 9px
   );
 }
 
@@ -62,7 +63,7 @@
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--green-100);
+  color: var(--yellow-300);
   margin-bottom: var(--s3);
 }
 
@@ -74,14 +75,15 @@
   color: var(--white);
   margin-bottom: var(--s3);
 }
+/* yellow italic accent for "Building the Future" */
 .hero-title em {
   font-style: italic;
-  color: var(--green-100);
+  color: var(--yellow-300);
 }
 
 .hero-subtitle {
   font-size: clamp(var(--fs-base), 1.5vw, var(--fs-lg));
-  color: rgba(255,255,255,0.78);
+  color: rgba(255,255,255,0.80);
   max-width: 52ch;
   margin-bottom: var(--s5);
   line-height: 1.8;
@@ -93,27 +95,29 @@
   gap: var(--s2);
 }
 
-/* Stats bar */
+/* ── Stats bar ────────────────────────────── */
 .hero-stats {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   z-index: 2;
   display: flex;
-  background: rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.08);
   backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(255,255,255,0.15);
+  border-top: 1px solid rgba(255,255,255,0.14);
 }
 .hero-stat {
   flex: 1;
   text-align: center;
   padding: var(--s3) var(--s4);
-  border-right: 1px solid rgba(255,255,255,0.12);
+  border-right: 1px solid rgba(255,255,255,0.10);
 }
 .hero-stat:last-child { border-right: none; }
+
+/* yellow stat numbers */
 .stat-number {
   font-size: var(--fs-3xl);
   font-weight: 900;
-  color: var(--green-100);
+  color: var(--yellow-300);
   line-height: 1;
   margin-bottom: 4px;
 }
@@ -121,11 +125,11 @@
   font-size: var(--fs-xs);
   font-weight: 600;
   letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.60);
   text-transform: uppercase;
 }
 
-/* Scroll indicator */
+/* ── Scroll indicator ─────────────────────── */
 .hero-scroll {
   position: absolute;
   bottom: 100px;
@@ -139,7 +143,7 @@
 .scroll-line {
   width: 1px;
   height: 60px;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.25);
   position: relative;
   overflow: hidden;
   border-radius: 1px;
@@ -151,7 +155,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--green-200);
+  background: var(--blue-400);
   animation: scrollDown 2s ease-in-out infinite;
 }
 @keyframes scrollDown {
@@ -162,6 +166,6 @@
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.40);
   writing-mode: vertical-lr;
 }
