@@ -36,14 +36,12 @@ if (typeof SITE_IMAGES !== 'undefined') {
       toggle.querySelector('.lang-en')?.classList.toggle('active', lang === 'en');
     }
 
-    // 文字先淡出，再淡出背景
-    content.classList.add('fade-out');
+    // 全部同時淡出（文字、背景、vignette 一起消失）
     document.body.style.overflow = '';
-    setTimeout(() => {
-      bg.classList.add('fade-out');
-      if (vignette) vignette.classList.add('fade-out');
-      setTimeout(() => intro.remove(), 1900);
-    }, 300);
+    bg.classList.add('fade-out');
+    if (vignette) vignette.classList.add('fade-out');
+    content.classList.add('fade-out');
+    setTimeout(() => intro.remove(), 1900);
   }
 
   // 語言按鈕點擊才觸發 crossfade
