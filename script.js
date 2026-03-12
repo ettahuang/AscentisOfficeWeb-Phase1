@@ -172,13 +172,26 @@ sections.forEach(s => sectionObserver.observe(s));
     counter.textContent = (current + 1) + ' / ' + total;
   }
 
-  frame.querySelector('.carousel-prev').addEventListener('click', () => goTo(current - 1));
-  frame.querySelector('.carousel-next').addEventListener('click', () => goTo(current + 1));
+  // Auto-play
+  const INTERVAL = 3000;
+  let timer = setInterval(() => goTo(current + 1), INTERVAL);
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), INTERVAL);
+  }
+
+  frame.querySelector('.carousel-prev').addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+  frame.querySelector('.carousel-next').addEventListener('click', () => { goTo(current + 1); resetTimer(); });
+
+  // Pause on hover
+  frame.addEventListener('mouseenter', () => clearInterval(timer));
+  frame.addEventListener('mouseleave', () => { timer = setInterval(() => goTo(current + 1), INTERVAL); });
 
   // Keyboard support when hovering
   frame.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft')  goTo(current - 1);
-    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowLeft')  { goTo(current - 1); resetTimer(); }
+    if (e.key === 'ArrowRight') { goTo(current + 1); resetTimer(); }
   });
   frame.setAttribute('tabindex', '0');
 })();
