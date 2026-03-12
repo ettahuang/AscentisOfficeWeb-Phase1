@@ -146,12 +146,9 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 0.55s ease;
+  /* transition 改由 JS 控制，支援滑動方向 */
 }
 .carousel-slide.active { opacity: 1; }
-
-/* 不讓 hover 的縮放套用到全部 slides */
-.about-carousel:hover .carousel-slide:not(.active) { transform: none; }
 
 .carousel-btn {
   position: absolute;

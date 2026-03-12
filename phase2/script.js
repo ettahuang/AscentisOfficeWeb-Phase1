@@ -152,7 +152,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(s => sectionObserver.observe(s));
 
-// ── About carousel ────────────────────────────
+// ── About carousel (右滑切換效果) ────────────
 (function () {
   const frame = document.getElementById('aboutCarousel');
   if (!frame) return;
@@ -161,6 +161,7 @@ sections.forEach(s => sectionObserver.observe(s));
   const dotsEl = frame.querySelector('.carousel-dots');
   const total = slides.length;
   let current = 0;
+  let animating = false;
 
   slides.forEach((_, i) => {
     const btn = document.createElement('button');
@@ -188,13 +189,51 @@ sections.forEach(s => sectionObserver.observe(s));
     progressBar.style.animation = 'carousel-fill 5s linear forwards';
   }
 
-  const dots = dotsEl.querySelectorAll('.dot');
+  const dots = Array.from(dotsEl.querySelectorAll('.dot'));
 
-  function goTo(index) {
-    slides[current].classList.remove('active');
+  const TRANS = 'transform 0.55s cubic-bezier(0.25, 1, 0.5, 1)';
+
+  function goTo(newIndex) {
+    if (animating) return;
+    const newIdx = (newIndex + total) % total;
+    if (newIdx === current) return;
+    animating = true;
+
+    // 判斷方向：最短路徑
+    const rawDiff = ((newIdx - current) + total) % total;
+    const dir = rawDiff <= total / 2 ? 1 : -1; // 1=前進(右進左出), -1=後退
+
+    const outSlide = slides[current];
+    const inSlide  = slides[newIdx];
+
+    // 新 slide 先定位到畫面外（無動畫）
+    inSlide.style.transition = 'none';
+    inSlide.style.transform  = `translateX(${dir * 100}%)`;
+    inSlide.style.opacity    = '1';
+    inSlide.classList.add('active');
+    inSlide.offsetWidth; // force reflow
+
+    // 開始滑動
+    inSlide.style.transition  = TRANS;
+    inSlide.style.transform   = 'translateX(0)';
+
+    outSlide.style.transition = `${TRANS}, opacity 0.35s ease 0.1s`;
+    outSlide.style.transform  = `translateX(${-dir * 100}%)`;
+    outSlide.style.opacity    = '0';
+
+    // 清除舊 slide
+    setTimeout(() => {
+      outSlide.classList.remove('active');
+      outSlide.style.transform  = '';
+      outSlide.style.transition = '';
+      outSlide.style.opacity    = '';
+      inSlide.style.transition  = '';
+      animating = false;
+    }, 600);
+
+    // 更新 dots / counter
     dots[current].classList.remove('active');
-    current = (index + total) % total;
-    slides[current].classList.add('active');
+    current = newIdx;
     dots[current].classList.add('active');
     counter.textContent = (current + 1) + ' / ' + total;
     restartProgress();

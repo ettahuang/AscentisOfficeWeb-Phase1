@@ -213,7 +213,8 @@
 /* ── 新聞清單 ─────────────────────────────── */
 .news-list {
   max-width: 860px;
-  margin: 0 auto var(--s8);
+  margin: 0 auto var(--s5);
+  padding: 0 var(--s4);
 }
 
 .news-item {
@@ -323,28 +324,28 @@
 
 /* ── 夥伴專區 (Team) ──────────────────────── */
 .team-section {
-  padding: var(--s14, 6rem) var(--s6);
+  padding: var(--s7) var(--s6);
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .team-header {
   text-align: center;
-  margin-bottom: var(--s10);
+  margin-bottom: var(--s5);
 }
 
 /* 文化亮點 4格 */
 .team-culture {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--s4);
-  margin-bottom: var(--s12, 4rem);
+  gap: var(--s3);
+  margin-bottom: var(--s6);
 }
 
 /* 夥伴心聲 — 可手動輪播 */
 .voices-carousel-wrap {
   position: relative;
-  margin-bottom: var(--s12, 4rem);
+  margin-bottom: var(--s6);
 }
 
 .voices-overflow {
@@ -436,20 +437,15 @@
 }
 
 /* 夥伴心聲 */
-.team-voices {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--s5);
-  margin-bottom: var(--s12, 4rem);
-}
-
 .voice-card {
   background: var(--blue-50);
+  border: 1px solid var(--blue-100);
   border-radius: var(--r-lg);
-  padding: var(--s5);
+  padding: var(--s4);
   display: flex;
   flex-direction: column;
-  gap: var(--s4);
+  gap: var(--s2);
+  min-height: 300px;
 }
 
 .voice-avatar {
