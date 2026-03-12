@@ -16,11 +16,11 @@ const SITE_IMAGES = {
   logo: 'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/logo.png?v=20260304161209',
 
   // ── Hero 首頁背景圖（全螢幕）─────────────
-  //    可換成任一下方公司環境照
-  hero: 'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_966243507386551216.jpg?v=20260304161209',
+  //    可換成 images/office/ 裡的任一張
+  hero: 'images/office/9901.jpg',
 
-  // ── About 關於我們（左側直式圖片）────────
-  about: 'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_894196076798065527.jpg?v=20260304161209',
+  // ── About 關於我們（輪播第一張預設）───────
+  about: 'images/office/1101.jpg',
 
   // ── 公司環境照（10張，可自行替換上面的 hero/about）
   // env1:  'https://static.104.com.tw/b_profile/cust_picture/6327/130000000256327/env/s_894196076798065527.jpg?v=20260304161209',
