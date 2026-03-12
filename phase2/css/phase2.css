@@ -465,6 +465,12 @@ blockquote {
 
 
 /* ── 尋找夥伴 CTA — 全寬橫幅 ─────────────── */
+.join-cta-outer {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--s4);
+}
+
 .join-cta {
   margin-top: var(--s8);
   background: linear-gradient(120deg, var(--blue-700) 0%, var(--blue-500) 100%);
