@@ -14,13 +14,15 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/navbar.css" />
-  <link rel="stylesheet" href="css/hero.css" />
-  <link rel="stylesheet" href="css/sections.css" />
-  <link rel="stylesheet" href="css/footer.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
+  <!-- 共用 CSS（借用 Phase 1）-->
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/hero.css" />
+  <link rel="stylesheet" href="../css/sections.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+
+  <!-- Phase 2 專屬 CSS -->
   <link rel="stylesheet" href="css/phase2.css" />
 </head>
 <body>
@@ -74,7 +76,7 @@
     <div class="hero-bg">
       <img
         data-img="hero"
-        src="images/office/9901.jpg"
+        src="../images/office/9901.jpg"
         alt="AscentisTech 辦公環境"
       />
     </div>
@@ -132,18 +134,18 @@
         <div class="about-deco"></div>
         <div class="about-img-frame about-carousel" id="aboutCarousel">
           <div class="carousel-track">
-            <img class="carousel-slide active" src="images/office/1101.jpg" alt="AscentisTech 辦公室" />
-            <img class="carousel-slide" src="images/office/1102.jpg" alt="AscentisTech 辦公室" />
-            <img class="carousel-slide" src="images/office/1103.jpg" alt="AscentisTech 辦公室" />
-            <img class="carousel-slide" src="images/office/1104.jpg" alt="AscentisTech 辦公室" />
-            <img class="carousel-slide" src="images/office/1105.jpg" alt="AscentisTech 辦公室" />
-            <img class="carousel-slide" src="images/office/5501.jpg" alt="AscentisTech 辦公室" />
-            <img class="carousel-slide" src="images/office/5502.jpg" alt="AscentisTech 辦公室" />
-            <img class="carousel-slide" src="images/office/7701.jpg" alt="AscentisTech 辦公室" />
-            <img class="carousel-slide" src="images/office/7702.jpg" alt="AscentisTech 辦公室" />
-            <img class="carousel-slide" src="images/office/8801.jpg" alt="AscentisTech 辦公室" />
-            <img class="carousel-slide" src="images/office/8802.jpg" alt="AscentisTech 辦公室" />
-            <img class="carousel-slide" src="images/office/9901.jpg" alt="AscentisTech 辦公室" />
+            <img class="carousel-slide active" src="../images/office/1101.jpg" alt="AscentisTech 辦公室" />
+            <img class="carousel-slide" src="../images/office/1102.jpg" alt="AscentisTech 辦公室" />
+            <img class="carousel-slide" src="../images/office/1103.jpg" alt="AscentisTech 辦公室" />
+            <img class="carousel-slide" src="../images/office/1104.jpg" alt="AscentisTech 辦公室" />
+            <img class="carousel-slide" src="../images/office/1105.jpg" alt="AscentisTech 辦公室" />
+            <img class="carousel-slide" src="../images/office/5501.jpg" alt="AscentisTech 辦公室" />
+            <img class="carousel-slide" src="../images/office/5502.jpg" alt="AscentisTech 辦公室" />
+            <img class="carousel-slide" src="../images/office/7701.jpg" alt="AscentisTech 辦公室" />
+            <img class="carousel-slide" src="../images/office/7702.jpg" alt="AscentisTech 辦公室" />
+            <img class="carousel-slide" src="../images/office/8801.jpg" alt="AscentisTech 辦公室" />
+            <img class="carousel-slide" src="../images/office/8802.jpg" alt="AscentisTech 辦公室" />
+            <img class="carousel-slide" src="../images/office/9901.jpg" alt="AscentisTech 辦公室" />
           </div>
           <button class="carousel-btn carousel-prev" aria-label="上一張"><i class="fa-solid fa-chevron-left"></i></button>
           <button class="carousel-btn carousel-next" aria-label="下一張"><i class="fa-solid fa-chevron-right"></i></button>
@@ -262,7 +264,7 @@
 
 
   <!-- =========================================
-       NEWS — 新聞新知（取代 Awards）
+       NEWS — 新聞新知
        ========================================= -->
   <section id="news" class="awards">
     <div class="awards-header fade-up">
@@ -315,7 +317,6 @@
 
     </div>
 
-    <!-- Banner -->
     <div class="awards-banner fade-up delay-5">
       <div class="awards-banner-inner">
         <div class="banner-text">
@@ -329,7 +330,7 @@
 
 
   <!-- =========================================
-       TEAM — 夥伴專區（新增）
+       TEAM — 夥伴專區
        ========================================= -->
   <section id="team" class="team-section">
     <div class="team-header fade-up">
@@ -362,11 +363,11 @@
       </div>
     </div>
 
-    <!-- 主管/夥伴心聲 -->
+    <!-- 夥伴心聲 -->
     <div class="team-voices fade-up">
       <div class="voice-card">
         <div class="voice-avatar">
-          <img src="images/office/7701.jpg" alt="工程部門" />
+          <img src="../images/office/7701.jpg" alt="工程部門" />
         </div>
         <blockquote>
           「我們不只寫程式，我們在解決真實的商業問題。每個工程師都有機會提出想法，看著自己的設計上線影響數十萬用戶，是最大的成就感。」
@@ -379,7 +380,7 @@
 
       <div class="voice-card">
         <div class="voice-avatar">
-          <img src="images/office/5501.jpg" alt="敏捷教練" />
+          <img src="../images/office/5501.jpg" alt="敏捷教練" />
         </div>
         <blockquote>
           「這裡的敏捷不是形式，是真正在幫助團隊更有效率、更快樂地工作。每個 Sprint 結束，大家都能感受到一點點的進步與改變。」
@@ -392,7 +393,7 @@
 
       <div class="voice-card">
         <div class="voice-avatar">
-          <img src="images/office/8801.jpg" alt="數據團隊" />
+          <img src="../images/office/8801.jpg" alt="數據團隊" />
         </div>
         <blockquote>
           「數據不只是數字，是理解用戶的窗口。在這裡你會有機會從原始數據到最終決策，全程參與，視野完全不同。」
@@ -407,15 +408,15 @@
     <!-- 活動照片 -->
     <div class="team-gallery fade-up">
       <div class="gallery-item gallery-item--wide">
-        <img src="images/office/1103.jpg" alt="團隊活動" />
+        <img src="../images/office/1103.jpg" alt="團隊活動" />
         <div class="gallery-overlay"><span>Team Activities</span></div>
       </div>
       <div class="gallery-item">
-        <img src="images/office/1104.jpg" alt="辦公環境" />
+        <img src="../images/office/1104.jpg" alt="辦公環境" />
         <div class="gallery-overlay"><span>Our Space</span></div>
       </div>
       <div class="gallery-item">
-        <img src="images/office/7702.jpg" alt="工作日常" />
+        <img src="../images/office/7702.jpg" alt="工作日常" />
         <div class="gallery-overlay"><span>Daily Life</span></div>
       </div>
     </div>

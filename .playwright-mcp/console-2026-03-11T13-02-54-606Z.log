@@ -1,0 +1,14 @@
+[    2494ms] ReferenceError: ScarabQueue is not defined
+    at <anonymous>:1:1
+    at https://www.googletagmanager.com/gtm.js?id=GTM-P379T3:949:429
+    at nR (https://www.googletagmanager.com/gtm.js?id=GTM-P379T3:951:31)
+    at Od.mR (https://www.googletagmanager.com/gtm.js?id=GTM-P379T3:948:92)
+    at Od.<anonymous> (https://www.googletagmanager.com/gtm.js?id=GTM-P379T3:369:187)
+    at k.apply (https://www.googletagmanager.com/gtm.js?id=GTM-P379T3:295:466)
+    at kb (https://www.googletagmanager.com/gtm.js?id=GTM-P379T3:258:209)
+    at jb (https://www.googletagmanager.com/gtm.js?id=GTM-P379T3:257:527)
+    at Od.<anonymous> (https://www.googletagmanager.com/gtm.js?id=GTM-P379T3:319:473)
+    at k.apply (https://www.googletagmanager.com/gtm.js?id=GTM-P379T3:295:466)
+[    2591ms] [WARNING] [Meta Pixel] - You are sending a non-standard event 'view_company'. The preferred way to send these events is using trackCustom. See 'https://developers.facebook.com/docs/ads-for-websites/pixel-events/#events' for more information. @ https://cdn.104.com.tw/cindex/assets/js/rollbar.CSm0483x.js:0
+[    3005ms] [ERROR] Attestation check for Attribution Reporting on https://www.facebook.com failed. @ https://www.104.com.tw/company/1a2x6bnh3b?jobsource=index_s:0
+[    3059ms] [ERROR] Attestation check for Attribution Reporting on https://www.facebook.com failed. @ https://www.104.com.tw/company/1a2x6bnh3b?jobsource=index_s:0
