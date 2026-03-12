@@ -213,6 +213,7 @@
   font-size: var(--fs-xl);
   font-weight: 800;
   margin-bottom: var(--s1);
+  color: var(--yellow-300);
 }
 
 .news-banner-inner .banner-text p {

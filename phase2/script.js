@@ -191,7 +191,7 @@ sections.forEach(s => sectionObserver.observe(s));
 
   const dots = Array.from(dotsEl.querySelectorAll('.dot'));
 
-  const TRANS = 'transform 0.55s cubic-bezier(0.25, 1, 0.5, 1)';
+  const TRANS = 'transform 1s cubic-bezier(0.25, 1, 0.5, 1)';
 
   function goTo(newIndex) {
     if (animating) return;
@@ -217,7 +217,7 @@ sections.forEach(s => sectionObserver.observe(s));
     inSlide.style.transition  = TRANS;
     inSlide.style.transform   = 'translateX(0)';
 
-    outSlide.style.transition = `${TRANS}, opacity 0.35s ease 0.1s`;
+    outSlide.style.transition = `${TRANS}, opacity 0.6s ease 0.1s`;
     outSlide.style.transform  = `translateX(${-dir * 100}%)`;
     outSlide.style.opacity    = '0';
 
@@ -229,7 +229,7 @@ sections.forEach(s => sectionObserver.observe(s));
       outSlide.style.opacity    = '';
       inSlide.style.transition  = '';
       animating = false;
-    }, 600);
+    }, 1100);
 
     // 更新 dots / counter
     dots[current].classList.remove('active');
@@ -301,14 +301,13 @@ sections.forEach(s => sectionObserver.observe(s));
     const cardW = setCardWidths();
     const gap = 20;
     const max = getMaxPos();
-    if (pos > max) pos = max;
+    if (pos > max) pos = 0;
+    if (pos < 0) pos = max;
     track.style.transform = `translateX(-${pos * (cardW + gap)}px)`;
-    if (prevBtn) prevBtn.disabled = pos <= 0;
-    if (nextBtn) nextBtn.disabled = pos >= max;
   }
 
-  if (prevBtn) prevBtn.addEventListener('click', () => { if (pos > 0) { pos--; update(); } });
-  if (nextBtn) nextBtn.addEventListener('click', () => { if (pos < getMaxPos()) { pos++; update(); } });
+  if (prevBtn) prevBtn.addEventListener('click', () => { pos--; update(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { pos++; update(); });
   window.addEventListener('resize', update);
   update();
 })();
