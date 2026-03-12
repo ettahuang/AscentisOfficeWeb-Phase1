@@ -8,9 +8,8 @@
   inset: 0;
   z-index: 9999;
   overflow: hidden;
-  /* 背景透明，讓下面的真實 hero 在 crossfade 時自然浮現 */
   background: transparent;
-  pointer-events: none;
+  pointer-events: all; /* 允許點擊語言按鈕 */
 }
 
 /* AI 圖層：慢速 Ken Burns，然後 fade out */
@@ -96,6 +95,43 @@
   font-weight: 400;
   letter-spacing: 0.15em;
   color: rgba(255,255,255,0.75);
+  margin-bottom: 2rem;
+}
+
+/* 語言選擇按鈕 */
+.intro-lang {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 0.5rem;
+}
+
+.intro-lang-btn {
+  padding: 10px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--r-full);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  backdrop-filter: blur(8px);
+}
+
+.intro-lang-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: var(--white);
+  transform: translateY(-2px);
+}
+
+.intro-lang-sep {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.4);
+  padding: 0 12px;
+  user-select: none;
 }
 
 /* 底部進度條 */
@@ -126,7 +162,55 @@
 }
 
 
-/* ── 新聞新知 (News) — 清單樣式 ─────────── */
+/* ── 新聞新知 (News Section) ──────────────── */
+.news-section {
+  background: var(--gray-50, #f8fafc);
+  padding: var(--s8) 0 var(--s6);
+}
+
+.news-header {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--s4);
+  text-align: center;
+  margin-bottom: var(--s6);
+}
+
+.news-banner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--s4);
+  margin-top: var(--s6);
+}
+
+.news-banner-inner {
+  background: linear-gradient(135deg, var(--blue-700) 0%, var(--blue-500) 100%);
+  border-radius: var(--r-xl);
+  padding: var(--s5) var(--s7);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s4);
+  color: var(--white);
+}
+
+.news-banner-inner .banner-text h3 {
+  font-size: var(--fs-xl);
+  font-weight: 800;
+  margin-bottom: var(--s1);
+}
+
+.news-banner-inner .banner-text p {
+  font-size: var(--fs-sm);
+  color: rgba(255,255,255,0.82);
+}
+
+.news-banner-inner .banner-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+/* ── 新聞清單 ─────────────────────────────── */
 .news-list {
   max-width: 860px;
   margin: 0 auto var(--s8);
@@ -249,29 +333,39 @@
   margin-bottom: var(--s10);
 }
 
-/* 文化亮點 — 可輪播 */
-.team-culture-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: var(--s3);
+/* 文化亮點 4格 */
+.team-culture {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s4);
   margin-bottom: var(--s12, 4rem);
 }
 
-.team-culture-overflow {
-  flex: 1;
+/* 夥伴心聲 — 可手動輪播 */
+.voices-carousel-wrap {
+  position: relative;
+  margin-bottom: var(--s12, 4rem);
+}
+
+.voices-overflow {
   overflow: hidden;
 }
 
-.team-culture {
+.team-voices {
   display: flex;
-  gap: var(--s4);
+  gap: 20px;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: transform;
 }
 
-/* 箭頭按鈕 */
-.culture-btn {
+.voices-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s2);
+  margin-top: var(--s4);
+}
+
+.voice-nav-btn {
   width: 44px;
   height: 44px;
   border-radius: var(--r-full);
@@ -288,14 +382,14 @@
   box-shadow: var(--shadow-sm);
 }
 
-.culture-btn:hover {
+.voice-nav-btn:hover {
   background: var(--blue-600);
   border-color: var(--blue-600);
   color: var(--white);
   box-shadow: var(--shadow-md);
 }
 
-.culture-btn:disabled {
+.voice-nav-btn:disabled {
   opacity: 0.3;
   pointer-events: none;
 }
@@ -464,7 +558,7 @@ blockquote {
 }
 
 
-/* ── 尋找夥伴 CTA — 全寬橫幅 ─────────────── */
+/* ── 尋找夥伴 CTA ──────────────────────────── */
 .join-cta-outer {
   max-width: var(--max-w);
   margin: 0 auto;
@@ -473,47 +567,46 @@ blockquote {
 
 .join-cta {
   margin-top: var(--s8);
-  background: linear-gradient(120deg, var(--blue-700) 0%, var(--blue-500) 100%);
-  border-radius: var(--r-lg);
-  padding: var(--s7) var(--s8);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--s6);
-}
-
-.join-cta-left {
+  margin-bottom: var(--s4);
+  background: var(--white);
+  border: 1.5px solid var(--blue-100);
+  border-radius: var(--r-xl);
+  padding: var(--s6) var(--s7);
   display: flex;
   align-items: center;
   gap: var(--s5);
+  box-shadow: var(--shadow-sm);
+}
+
+.join-cta-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-full);
+  background: var(--blue-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--blue-600);
+  flex-shrink: 0;
+}
+
+.join-cta-text {
   flex: 1;
   min-width: 0;
 }
 
-.join-cta-icon-wrap {
-  width: 60px;
-  height: 60px;
-  border-radius: var(--r-full);
-  background: rgba(255, 255, 255, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  color: var(--white);
-  flex-shrink: 0;
-}
-
 .join-cta-title {
-  font-size: var(--fs-xl);
+  font-size: var(--fs-lg);
   font-weight: 800;
-  color: var(--white);
-  margin-bottom: var(--s1);
+  color: var(--text-900);
+  margin-bottom: 4px;
   line-height: 1.2;
 }
 
 .join-cta-desc {
   font-size: var(--fs-sm);
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--text-500);
   line-height: 1.6;
   margin: 0;
 }
@@ -522,9 +615,9 @@ blockquote {
   display: inline-flex;
   align-items: center;
   gap: var(--s2);
-  padding: 14px 28px;
-  background: var(--white);
-  color: var(--blue-700);
+  padding: 12px 24px;
+  background: var(--blue-600);
+  color: var(--white);
   border-radius: var(--r-full);
   font-size: var(--fs-sm);
   font-weight: 700;
@@ -532,24 +625,28 @@ blockquote {
   white-space: nowrap;
   flex-shrink: 0;
   transition: var(--ease);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 14px rgba(30, 77, 161, 0.3);
 }
 
 .join-cta-btn:hover {
-  background: var(--blue-50);
+  background: var(--blue-700);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(30, 77, 161, 0.4);
 }
 
 
 /* ── Responsive ───────────────────────────── */
 @media (max-width: 1024px) {
-  .team-voices {
-    grid-template-columns: 1fr 1fr;
+  .team-culture {
+    grid-template-columns: repeat(2, 1fr);
   }
   .gallery-marquee-item {
     width: 260px;
     height: 200px;
+  }
+  .news-banner-inner {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
@@ -557,13 +654,8 @@ blockquote {
   .team-section {
     padding: var(--s10) var(--s4);
   }
-  .team-voices {
-    grid-template-columns: 1fr;
-  }
-  .culture-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 0.8rem;
+  .team-culture {
+    grid-template-columns: repeat(2, 1fr);
   }
   .gallery-marquee-item {
     width: 220px;
@@ -577,22 +669,22 @@ blockquote {
     font-size: var(--fs-base);
   }
   .join-cta {
-    flex-direction: column;
-    align-items: stretch;
-    padding: var(--s5) var(--s4);
-  }
-  .join-cta-left {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--s3);
+    flex-wrap: wrap;
+    padding: var(--s5) var(--s5);
   }
   .join-cta-btn {
+    width: 100%;
     justify-content: center;
-    text-align: center;
+  }
+  .voices-nav {
+    justify-content: center;
   }
 }
 
 @media (max-width: 480px) {
+  .team-culture {
+    grid-template-columns: 1fr;
+  }
   .news-item {
     gap: var(--s3);
   }

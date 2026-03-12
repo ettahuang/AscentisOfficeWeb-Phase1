@@ -10,43 +10,65 @@ if (typeof SITE_IMAGES !== 'undefined') {
   });
 }
 
-// ── Intro overlay (A→B crossfade) ───────────
+// ── Intro overlay — 等待使用者選擇語言 ──────
 (function () {
   const intro = document.getElementById('page-intro');
   if (!intro) return;
 
-  // 用 JS 設路徑（相對於 phase2/index.html）避免 CSS 相對路徑問題
   const bg = intro.querySelector('.intro-bg');
   bg.style.backgroundImage = "url('../images/home-backup/IMG_5408.png')";
 
   const vignette = intro.querySelector('.intro-vignette');
   const content  = intro.querySelector('.intro-content');
-  const bar      = intro.querySelector('.intro-bar');
 
-  // 進度條跑完後（約 2.4s），開始慢慢 crossfade
-  setTimeout(() => {
-    // 文字和進度條先快一點淡出
-    if (content) content.classList.add('fade-out');
-    if (bar)     bar.classList.add('fade-out');
+  function crossfade(lang) {
+    // 套用語言
+    if (typeof applyTranslations === 'function') applyTranslations(lang);
+    document.documentElement.setAttribute('data-lang', lang);
 
-    // 0.3s 後 AI 圖層和暗層開始 1.8s 慢淡（此時真實 hero 從後方浮現）
+    // 更新 navbar 語言按鈕狀態
+    const toggle = document.getElementById('langToggle');
+    if (toggle) {
+      toggle.querySelector('.lang-zh')?.classList.toggle('active', lang === 'zh');
+      toggle.querySelector('.lang-en')?.classList.toggle('active', lang === 'en');
+    }
+
+    // 文字先淡出，再淡出背景
+    content.classList.add('fade-out');
     setTimeout(() => {
       bg.classList.add('fade-out');
       if (vignette) vignette.classList.add('fade-out');
-
-      // fade 結束後移除 DOM
       setTimeout(() => intro.remove(), 1900);
     }, 300);
-  }, 2400);
+  }
+
+  // 語言按鈕點擊才觸發 crossfade
+  intro.querySelectorAll('.intro-lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => crossfade(btn.getAttribute('data-lang')));
+  });
 })();
 
-// ── Navbar scroll behavior ──────────────────
+// ── Language toggle (navbar) ─────────────────
+const langToggle = document.getElementById('langToggle');
+let currentLang = 'zh';
+
+if (langToggle) {
+  langToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'zh' ? 'en' : 'zh';
+    document.documentElement.setAttribute('data-lang', currentLang);
+    if (typeof applyTranslations === 'function') applyTranslations(currentLang);
+    langToggle.querySelector('.lang-zh')?.classList.toggle('active', currentLang === 'zh');
+    langToggle.querySelector('.lang-en')?.classList.toggle('active', currentLang === 'en');
+  });
+}
+
+// ── Navbar scroll behavior ───────────────────
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
-// ── Mobile menu ─────────────────────────────
+// ── Mobile menu ──────────────────────────────
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 
@@ -64,7 +86,7 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   });
 });
 
-// ── Smooth scroll for anchor links ──────────
+// ── Smooth scroll ────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -83,13 +105,13 @@ const fadeObserver = new IntersectionObserver((entries) => {
       fadeObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('.fade-up, .fade-in, .fade-left, .fade-right').forEach(el => {
   fadeObserver.observe(el);
 });
 
-// ── Counter animation ─────────────────────────
+// ── Counter animation ────────────────────────
 function animateCounter(el) {
   if (el.dataset.animated) return;
   el.dataset.animated = '1';
@@ -130,7 +152,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(s => sectionObserver.observe(s));
 
-// ── About carousel ───────────────────────────
+// ── About carousel ────────────────────────────
 (function () {
   const frame = document.getElementById('aboutCarousel');
   if (!frame) return;
@@ -140,7 +162,6 @@ sections.forEach(s => sectionObserver.observe(s));
   const total = slides.length;
   let current = 0;
 
-  // Build dot indicators
   slides.forEach((_, i) => {
     const btn = document.createElement('button');
     btn.className = 'dot' + (i === 0 ? ' active' : '');
@@ -149,13 +170,11 @@ sections.forEach(s => sectionObserver.observe(s));
     dotsEl.appendChild(btn);
   });
 
-  // Build counter
   const counter = document.createElement('div');
   counter.className = 'carousel-counter';
   counter.textContent = '1 / ' + total;
   frame.appendChild(counter);
 
-  // Build progress bar
   const progressWrap = document.createElement('div');
   progressWrap.className = 'carousel-progress';
   const progressBar = document.createElement('div');
@@ -210,24 +229,21 @@ sections.forEach(s => sectionObserver.observe(s));
   frame.setAttribute('tabindex', '0');
 })();
 
-// ── Culture cards carousel ───────────────────
+// ── Team voices carousel ─────────────────────
 (function () {
-  const track = document.getElementById('cultureTrack');
+  const track = document.getElementById('voicesTrack');
   if (!track) return;
 
   const overflow = track.parentElement;
-  const cards = Array.from(track.querySelectorAll('.culture-card'));
+  const cards = Array.from(track.querySelectorAll('.voice-card'));
   const total = cards.length;
   let pos = 0;
 
-  const prevBtn = document.querySelector('.culture-btn--prev');
-  const nextBtn = document.querySelector('.culture-btn--next');
+  const prevBtn = document.querySelector('.voice-nav-btn--prev');
+  const nextBtn = document.querySelector('.voice-nav-btn--next');
 
   function getVisible() {
-    const w = window.innerWidth;
-    if (w < 600) return 1;
-    if (w < 900) return 2;
-    return 3;
+    return window.innerWidth < 768 ? 1 : 2;
   }
 
   function getMaxPos() {
@@ -236,7 +252,7 @@ sections.forEach(s => sectionObserver.observe(s));
 
   function setCardWidths() {
     const visible = getVisible();
-    const gap = 16;
+    const gap = 20;
     const cardW = (overflow.offsetWidth - gap * (visible - 1)) / visible;
     cards.forEach(c => { c.style.width = cardW + 'px'; c.style.flexShrink = '0'; });
     return cardW;
@@ -244,16 +260,16 @@ sections.forEach(s => sectionObserver.observe(s));
 
   function update() {
     const cardW = setCardWidths();
-    const gap = 16;
+    const gap = 20;
     const max = getMaxPos();
     if (pos > max) pos = max;
     track.style.transform = `translateX(-${pos * (cardW + gap)}px)`;
-    prevBtn.disabled = pos <= 0;
-    nextBtn.disabled = pos >= max;
+    if (prevBtn) prevBtn.disabled = pos <= 0;
+    if (nextBtn) nextBtn.disabled = pos >= max;
   }
 
-  prevBtn.addEventListener('click', () => { if (pos > 0) { pos--; update(); } });
-  nextBtn.addEventListener('click', () => { if (pos < getMaxPos()) { pos++; update(); } });
+  if (prevBtn) prevBtn.addEventListener('click', () => { if (pos > 0) { pos--; update(); } });
+  if (nextBtn) nextBtn.addEventListener('click', () => { if (pos < getMaxPos()) { pos++; update(); } });
   window.addEventListener('resize', update);
   update();
 })();
