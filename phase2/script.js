@@ -21,9 +21,6 @@ if (typeof SITE_IMAGES !== 'undefined') {
   const bg = intro.querySelector('.intro-bg');
   bg.style.backgroundImage = "url('../images/home-backup/IMG_5408.png')";
 
-  const vignette = intro.querySelector('.intro-vignette');
-  const content  = intro.querySelector('.intro-content');
-
   function crossfade(lang) {
     // 套用語言
     if (typeof applyTranslations === 'function') applyTranslations(lang);
@@ -36,11 +33,9 @@ if (typeof SITE_IMAGES !== 'undefined') {
       toggle.querySelector('.lang-en')?.classList.toggle('active', lang === 'en');
     }
 
-    // 全部同時淡出（文字、背景、vignette 一起消失）
+    // 全部同時淡出（含黑色底層，整個 intro 一起 fade）
     document.body.style.overflow = '';
-    bg.classList.add('fade-out');
-    if (vignette) vignette.classList.add('fade-out');
-    content.classList.add('fade-out');
+    intro.classList.add('fade-out');
     setTimeout(() => intro.remove(), 1900);
   }
 

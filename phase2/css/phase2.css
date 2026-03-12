@@ -10,6 +10,12 @@
   overflow: hidden;
   background: #000; /* 確保 intro-bg 圖片載入前底層不透出 */
   pointer-events: all; /* 允許點擊語言按鈕 */
+  transition: opacity 1.8s ease-in-out;
+}
+
+#page-intro.fade-out {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* AI 圖層：慢速 Ken Burns，然後 fade out */
