@@ -20,7 +20,7 @@
 .hero-bg img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center calc(40% - 300px);
 }
 
 /* ── 藍色漸層遮罩 ─────────────────────────── */
@@ -56,6 +56,7 @@
   margin: 0 auto;
   padding: 0 var(--s4);
   padding-top: var(--nav-h);
+  transform: translateY(-100px);
 }
 
 .hero-eyebrow {
