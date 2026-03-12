@@ -15,6 +15,9 @@ if (typeof SITE_IMAGES !== 'undefined') {
   const intro = document.getElementById('page-intro');
   if (!intro) return;
 
+  // 鎖住捲動，直到語言選擇完成
+  document.body.style.overflow = 'hidden';
+
   const bg = intro.querySelector('.intro-bg');
   bg.style.backgroundImage = "url('../images/home-backup/IMG_5408.png')";
 
@@ -35,6 +38,7 @@ if (typeof SITE_IMAGES !== 'undefined') {
 
     // 文字先淡出，再淡出背景
     content.classList.add('fade-out');
+    document.body.style.overflow = '';
     setTimeout(() => {
       bg.classList.add('fade-out');
       if (vignette) vignette.classList.add('fade-out');
