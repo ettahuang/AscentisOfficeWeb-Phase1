@@ -210,6 +210,54 @@ sections.forEach(s => sectionObserver.observe(s));
   frame.setAttribute('tabindex', '0');
 })();
 
+// ── Culture cards carousel ───────────────────
+(function () {
+  const track = document.getElementById('cultureTrack');
+  if (!track) return;
+
+  const overflow = track.parentElement;
+  const cards = Array.from(track.querySelectorAll('.culture-card'));
+  const total = cards.length;
+  let pos = 0;
+
+  const prevBtn = document.querySelector('.culture-btn--prev');
+  const nextBtn = document.querySelector('.culture-btn--next');
+
+  function getVisible() {
+    const w = window.innerWidth;
+    if (w < 600) return 1;
+    if (w < 900) return 2;
+    return 3;
+  }
+
+  function getMaxPos() {
+    return Math.max(0, total - getVisible());
+  }
+
+  function setCardWidths() {
+    const visible = getVisible();
+    const gap = 16;
+    const cardW = (overflow.offsetWidth - gap * (visible - 1)) / visible;
+    cards.forEach(c => { c.style.width = cardW + 'px'; c.style.flexShrink = '0'; });
+    return cardW;
+  }
+
+  function update() {
+    const cardW = setCardWidths();
+    const gap = 16;
+    const max = getMaxPos();
+    if (pos > max) pos = max;
+    track.style.transform = `translateX(-${pos * (cardW + gap)}px)`;
+    prevBtn.disabled = pos <= 0;
+    nextBtn.disabled = pos >= max;
+  }
+
+  prevBtn.addEventListener('click', () => { if (pos > 0) { pos--; update(); } });
+  nextBtn.addEventListener('click', () => { if (pos < getMaxPos()) { pos++; update(); } });
+  window.addEventListener('resize', update);
+  update();
+})();
+
 // ── Scroll to top button ─────────────────────
 const scrollTop = document.getElementById('scrollTop');
 if (scrollTop) {

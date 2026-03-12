@@ -37,8 +37,12 @@
       <p class="intro-label">Welcome to</p>
       <h1 class="intro-brand">AscentisTech</h1>
       <p class="intro-tagline">昇新科技 · 引領創新 · 共創未來</p>
+      <div class="intro-lang">
+        <button class="intro-lang-btn" data-lang="zh">中文</button>
+        <span class="intro-lang-sep">|</span>
+        <button class="intro-lang-btn" data-lang="en">English</button>
+      </div>
     </div>
-    <div class="intro-bar"><div class="intro-bar-fill"></div></div>
   </div>
 
 
@@ -57,15 +61,20 @@
       </a>
 
       <div class="nav-links">
-        <a href="#about">關於我們</a>
-        <a href="#services">服務項目</a>
-        <a href="#news">新聞新知</a>
-        <a href="#team">夥伴專區</a>
-        <a href="#benefits">員工福利</a>
-        <a href="#contact">聯絡我們</a>
+        <a href="#about"    data-i18n="nav.about">關於我們</a>
+        <a href="#services" data-i18n="nav.services">服務項目</a>
+        <a href="#news"     data-i18n="nav.news">新聞新知</a>
+        <a href="#team"     data-i18n="nav.team">夥伴專區</a>
+        <a href="#benefits" data-i18n="nav.benefits">員工福利</a>
+        <a href="#contact"  data-i18n="nav.contact">聯絡我們</a>
       </div>
 
       <div class="nav-right">
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+          <span class="lang-zh active">中</span>
+          <span class="lang-sep">/</span>
+          <span class="lang-en">EN</span>
+        </button>
         <button class="hamburger" id="hamburger" aria-label="開啟選單">
           <span></span><span></span><span></span>
         </button>
@@ -75,12 +84,12 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#about">關於我們</a>
-    <a href="#services">服務項目</a>
-    <a href="#news">新聞新知</a>
-    <a href="#team">夥伴專區</a>
-    <a href="#benefits">員工福利</a>
-    <a href="#contact">聯絡我們</a>
+    <a href="#about"    data-i18n="nav.about">關於我們</a>
+    <a href="#services" data-i18n="nav.services">服務項目</a>
+    <a href="#news"     data-i18n="nav.news">新聞新知</a>
+    <a href="#team"     data-i18n="nav.team">夥伴專區</a>
+    <a href="#benefits" data-i18n="nav.benefits">員工福利</a>
+    <a href="#contact"  data-i18n="nav.contact">聯絡我們</a>
   </div>
 
 
@@ -98,21 +107,21 @@
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <p class="hero-eyebrow fade-up">AscentisTech &nbsp;·&nbsp; 昇新科技</p>
+      <p class="hero-eyebrow fade-up" data-i18n="hero.eyebrow">AscentisTech &nbsp;·&nbsp; 昇新科技</p>
       <h1 class="hero-title fade-up delay-1">
-        <span>引領創新</span><br />
-        <em>共創未來</em>
+        <span data-i18n="hero.title.line1">引領創新</span><br />
+        <em data-i18n="hero.title.line2">共創未來</em>
       </h1>
-      <p class="hero-subtitle fade-up delay-2">
+      <p class="hero-subtitle fade-up delay-2" data-i18n="hero.subtitle">
         打造世界級線上軟體開發平台，以技術創新驅動數位轉型。<br />
         我們正在找尋志同道合的夥伴，一起走得更遠。
       </p>
       <div class="hero-btns fade-up delay-3">
         <a href="#services" class="btn btn-primary">
           <i class="fa-solid fa-arrow-right"></i>
-          探索服務
+          <span data-i18n="hero.cta.explore">探索服務</span>
         </a>
-        <a href="#team" class="btn btn-outline">認識團隊</a>
+        <a href="#team" class="btn btn-outline" data-i18n="hero.cta.team">認識團隊</a>
       </div>
     </div>
 
@@ -288,46 +297,58 @@
       <p class="section-desc">得獎紀錄、產業洞察與公司動態，持續關注我們的最新進展</p>
     </div>
 
-    <div class="awards-grid news-grid">
+    <div class="news-list fade-up">
 
-      <div class="award-card news-card fade-up delay-1">
-        <div class="news-meta">
-          <span class="news-tag news-tag--award"><i class="fa-solid fa-trophy"></i> 得獎</span>
-          <span class="news-date">2025.03</span>
+      <div class="news-item">
+        <div class="news-item-num">01</div>
+        <div class="news-item-body">
+          <div class="news-meta">
+            <span class="news-tag news-tag--award"><i class="fa-solid fa-trophy"></i> 得獎</span>
+            <span class="news-date">2025.03</span>
+          </div>
+          <h3 class="news-item-title">2025 台灣敏捷大獎 — 最佳敏捷組織獎</h3>
+          <p class="news-item-desc">在組織敏捷轉型方面獲得卓越成就的肯定，成為業界標竿</p>
         </div>
-        <div class="award-icon"><i class="fa-solid fa-building"></i></div>
-        <h3>2025 台灣敏捷大獎<br />最佳敏捷組織獎</h3>
-        <p>在組織敏捷轉型方面獲得卓越成就的肯定，成為業界標竿</p>
+        <i class="fa-solid fa-arrow-right news-item-arrow"></i>
       </div>
 
-      <div class="award-card news-card fade-up delay-2">
-        <div class="news-meta">
-          <span class="news-tag news-tag--award"><i class="fa-solid fa-trophy"></i> 得獎</span>
-          <span class="news-date">2025.03</span>
+      <div class="news-item">
+        <div class="news-item-num">02</div>
+        <div class="news-item-body">
+          <div class="news-meta">
+            <span class="news-tag news-tag--award"><i class="fa-solid fa-trophy"></i> 得獎</span>
+            <span class="news-date">2025.03</span>
+          </div>
+          <h3 class="news-item-title">2025 台灣敏捷大獎 — 最佳敏捷團隊獎</h3>
+          <p class="news-item-desc">獲獎肯定團隊協作效率與交付品質，展現跨功能協作的最佳實踐</p>
         </div>
-        <div class="award-icon"><i class="fa-solid fa-people-group"></i></div>
-        <h3>2025 台灣敏捷大獎<br />最佳敏捷團隊獎</h3>
-        <p>獲獎肯定團隊協作效率與交付品質，展現跨功能協作的最佳實踐</p>
+        <i class="fa-solid fa-arrow-right news-item-arrow"></i>
       </div>
 
-      <div class="award-card news-card fade-up delay-3">
-        <div class="news-meta">
-          <span class="news-tag news-tag--news"><i class="fa-solid fa-newspaper"></i> 產業動態</span>
-          <span class="news-date">2025.02</span>
+      <div class="news-item">
+        <div class="news-item-num">03</div>
+        <div class="news-item-body">
+          <div class="news-meta">
+            <span class="news-tag news-tag--award"><i class="fa-solid fa-trophy"></i> 得獎</span>
+            <span class="news-date">2025.03</span>
+          </div>
+          <h3 class="news-item-title">2025 台灣敏捷大獎 — 年度變革領袖獎</h3>
+          <p class="news-item-desc">表彰在推動組織變革過程中展現的卓越領導力</p>
         </div>
-        <div class="award-icon"><i class="fa-solid fa-microchip"></i></div>
-        <h3>AI 加速軟體交付<br />Scrum 團隊的新工作方式</h3>
-        <p>AI Coding Assistant 正在改變開發流程，我們如何在敏捷框架內導入並提升整體效率</p>
+        <i class="fa-solid fa-arrow-right news-item-arrow"></i>
       </div>
 
-      <div class="award-card news-card fade-up delay-4">
-        <div class="news-meta">
-          <span class="news-tag news-tag--award"><i class="fa-solid fa-trophy"></i> 得獎</span>
-          <span class="news-date">2025.03</span>
+      <div class="news-item">
+        <div class="news-item-num">04</div>
+        <div class="news-item-body">
+          <div class="news-meta">
+            <span class="news-tag news-tag--news"><i class="fa-solid fa-newspaper"></i> 產業動態</span>
+            <span class="news-date">2025.02</span>
+          </div>
+          <h3 class="news-item-title">AI 加速軟體交付 — Scrum 團隊的新工作方式</h3>
+          <p class="news-item-desc">AI Coding Assistant 正在改變開發流程，我們如何在敏捷框架內導入並提升整體效率</p>
         </div>
-        <div class="award-icon"><i class="fa-solid fa-bolt"></i></div>
-        <h3>2025 台灣敏捷大獎<br />年度變革領袖獎</h3>
-        <p>表彰在推動組織變革過程中展現的卓越領導力</p>
+        <i class="fa-solid fa-arrow-right news-item-arrow"></i>
       </div>
 
     </div>
@@ -354,28 +375,34 @@
       <p class="section-desc">我們相信好的工作環境與好的夥伴，是彼此成長最重要的基礎</p>
     </div>
 
-    <!-- 文化亮點 -->
-    <div class="team-culture fade-up">
-      <div class="culture-card">
-        <div class="culture-icon"><i class="fa-solid fa-comments"></i></div>
-        <h4>開放的溝通文化</h4>
-        <p>每個聲音都被聽見，扁平化組織讓想法直接推動行動</p>
+    <!-- 文化亮點（可左右輪播） -->
+    <div class="team-culture-wrap fade-up">
+      <button class="culture-btn culture-btn--prev" aria-label="上一個"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="team-culture-overflow">
+        <div class="team-culture" id="cultureTrack">
+          <div class="culture-card">
+            <div class="culture-icon"><i class="fa-solid fa-comments"></i></div>
+            <h4>開放的溝通文化</h4>
+            <p>每個聲音都被聽見，扁平化組織讓想法直接推動行動</p>
+          </div>
+          <div class="culture-card">
+            <div class="culture-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <h4>持續學習與成長</h4>
+            <p>定期舉辦技術分享、外部講師工作坊，支持每個人成為更好的專業者</p>
+          </div>
+          <div class="culture-card">
+            <div class="culture-icon"><i class="fa-solid fa-handshake"></i></div>
+            <h4>跨部門協作</h4>
+            <p>工程、數據、產品緊密合作，一起解決真實的業務挑戰</p>
+          </div>
+          <div class="culture-card">
+            <div class="culture-icon"><i class="fa-solid fa-star"></i></div>
+            <h4>敏捷文化落地</h4>
+            <p>不只是口號，Scrum、Kanban 真實運作於每個團隊的日常</p>
+          </div>
+        </div>
       </div>
-      <div class="culture-card">
-        <div class="culture-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-        <h4>持續學習與成長</h4>
-        <p>定期舉辦技術分享、外部講師工作坊，支持每個人成為更好的專業者</p>
-      </div>
-      <div class="culture-card">
-        <div class="culture-icon"><i class="fa-solid fa-handshake"></i></div>
-        <h4>跨部門協作</h4>
-        <p>工程、數據、產品緊密合作，一起解決真實的業務挑戰</p>
-      </div>
-      <div class="culture-card">
-        <div class="culture-icon"><i class="fa-solid fa-star"></i></div>
-        <h4>敏捷文化落地</h4>
-        <p>不只是口號，Scrum、Kanban 真實運作於每個團隊的日常</p>
-      </div>
+      <button class="culture-btn culture-btn--next" aria-label="下一個"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
     <!-- 夥伴心聲 -->
@@ -420,19 +447,26 @@
       </div>
     </div>
 
-    <!-- 活動照片 -->
-    <div class="team-gallery fade-up">
-      <div class="gallery-item gallery-item--wide">
-        <img src="../images/office/1103.jpg" alt="團隊活動" />
-        <div class="gallery-overlay"><span>Team Activities</span></div>
-      </div>
-      <div class="gallery-item">
-        <img src="../images/office/1104.jpg" alt="辦公環境" />
-        <div class="gallery-overlay"><span>Our Space</span></div>
-      </div>
-      <div class="gallery-item">
-        <img src="../images/office/7702.jpg" alt="工作日常" />
-        <div class="gallery-overlay"><span>Daily Life</span></div>
+    <!-- 活動照片（自動緩慢輪播） -->
+    <div class="team-gallery-marquee fade-up">
+      <div class="gallery-marquee-track">
+        <div class="gallery-marquee-item"><img src="../images/office/1101.jpg" alt="AscentisTech 辦公室" /></div>
+        <div class="gallery-marquee-item"><img src="../images/office/1103.jpg" alt="團隊活動" /></div>
+        <div class="gallery-marquee-item"><img src="../images/office/1104.jpg" alt="辦公環境" /></div>
+        <div class="gallery-marquee-item"><img src="../images/office/5501.jpg" alt="工作日常" /></div>
+        <div class="gallery-marquee-item"><img src="../images/office/7701.jpg" alt="工程團隊" /></div>
+        <div class="gallery-marquee-item"><img src="../images/office/7702.jpg" alt="工作日常" /></div>
+        <div class="gallery-marquee-item"><img src="../images/office/8801.jpg" alt="數據團隊" /></div>
+        <div class="gallery-marquee-item"><img src="../images/office/8802.jpg" alt="辦公環境" /></div>
+        <!-- 複製第二輪以實現無縫循環 -->
+        <div class="gallery-marquee-item"><img src="../images/office/1101.jpg" alt="AscentisTech 辦公室" /></div>
+        <div class="gallery-marquee-item"><img src="../images/office/1103.jpg" alt="團隊活動" /></div>
+        <div class="gallery-marquee-item"><img src="../images/office/1104.jpg" alt="辦公環境" /></div>
+        <div class="gallery-marquee-item"><img src="../images/office/5501.jpg" alt="工作日常" /></div>
+        <div class="gallery-marquee-item"><img src="../images/office/7701.jpg" alt="工程團隊" /></div>
+        <div class="gallery-marquee-item"><img src="../images/office/7702.jpg" alt="工作日常" /></div>
+        <div class="gallery-marquee-item"><img src="../images/office/8801.jpg" alt="數據團隊" /></div>
+        <div class="gallery-marquee-item"><img src="../images/office/8802.jpg" alt="辦公環境" /></div>
       </div>
     </div>
   </section>

@@ -126,20 +126,86 @@
 }
 
 
-/* ── 新聞新知 (News) ───────────────────────── */
-.news-grid {
-  /* 沿用 awards-grid，此處可做微調 */
+/* ── 新聞新知 (News) — 清單樣式 ─────────── */
+.news-list {
+  max-width: 860px;
+  margin: 0 auto var(--s8);
 }
 
-.news-card {
-  position: relative;
+.news-item {
+  display: flex;
+  align-items: center;
+  gap: var(--s5);
+  padding: var(--s5) 0;
+  border-bottom: 1px solid var(--blue-100);
+  cursor: default;
+  transition: var(--ease);
+}
+
+.news-item:first-child {
+  border-top: 1px solid var(--blue-100);
+}
+
+.news-item:hover {
+  background: var(--blue-50);
+  border-radius: var(--r-md);
+  padding-left: var(--s4);
+  padding-right: var(--s4);
+  border-color: transparent;
+}
+
+.news-item-num {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 900;
+  color: var(--blue-200);
+  line-height: 1;
+  min-width: 56px;
+  font-family: 'Playfair Display', serif;
+  flex-shrink: 0;
+  transition: color 0.25s;
+}
+
+.news-item:hover .news-item-num {
+  color: var(--blue-400);
+}
+
+.news-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.news-item-title {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--text-900);
+  margin-bottom: var(--s1);
+  line-height: 1.4;
+}
+
+.news-item-desc {
+  font-size: var(--fs-sm);
+  color: var(--text-500);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.news-item-arrow {
+  font-size: 0.9rem;
+  color: var(--blue-300);
+  flex-shrink: 0;
+  transition: transform 0.25s, color 0.25s;
+}
+
+.news-item:hover .news-item-arrow {
+  color: var(--blue-600);
+  transform: translateX(4px);
 }
 
 .news-meta {
   display: flex;
   align-items: center;
   gap: var(--s2);
-  margin-bottom: var(--s3);
+  margin-bottom: var(--s2);
   flex-wrap: wrap;
 }
 
@@ -156,18 +222,18 @@
 
 .news-tag--award {
   background: rgba(234, 179, 8, 0.15);
-  color: #b45309;
+  color: #92400e;
 }
 
 .news-tag--news {
   background: rgba(59, 130, 246, 0.12);
-  color: var(--blue-600);
+  color: var(--blue-700);
 }
 
 .news-date {
   font-size: var(--fs-xs);
-  color: var(--text-400);
-  font-weight: 500;
+  color: var(--text-500);
+  font-weight: 600;
 }
 
 
@@ -183,12 +249,55 @@
   margin-bottom: var(--s10);
 }
 
-/* 文化亮點 4格 */
-.team-culture {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--s4);
+/* 文化亮點 — 可輪播 */
+.team-culture-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
   margin-bottom: var(--s12, 4rem);
+}
+
+.team-culture-overflow {
+  flex: 1;
+  overflow: hidden;
+}
+
+.team-culture {
+  display: flex;
+  gap: var(--s4);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+/* 箭頭按鈕 */
+.culture-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-full);
+  background: var(--white);
+  border: 1.5px solid var(--blue-200);
+  color: var(--blue-600);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: var(--ease);
+  box-shadow: var(--shadow-sm);
+}
+
+.culture-btn:hover {
+  background: var(--blue-600);
+  border-color: var(--blue-600);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.culture-btn:disabled {
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .culture-card {
@@ -291,52 +400,67 @@ blockquote {
   color: var(--text-400);
 }
 
-/* 活動照片牆 */
-.team-gallery {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 280px;
-  gap: var(--s3);
+/* 活動照片 — 無縫自動輪播 */
+.team-gallery-marquee {
+  overflow: hidden;
   border-radius: var(--r-lg);
-  overflow: hidden;
-}
-
-.gallery-item {
   position: relative;
-  overflow: hidden;
 }
 
-.gallery-item img {
+.team-gallery-marquee::before,
+.team-gallery-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.team-gallery-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(248, 250, 252, 0.8), transparent);
+}
+
+.team-gallery-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(248, 250, 252, 0.8), transparent);
+}
+
+.gallery-marquee-track {
+  display: flex;
+  gap: 12px;
+  animation: gallery-marquee 30s linear infinite;
+  width: max-content;
+}
+
+.gallery-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes gallery-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.gallery-marquee-item {
+  width: 300px;
+  height: 220px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.gallery-marquee-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
 
-.gallery-item:hover img {
+.gallery-marquee-item:hover img {
   transform: scale(1.06);
-}
-
-.gallery-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(15, 23, 42, 0.6) 0%, transparent 60%);
-  display: flex;
-  align-items: flex-end;
-  padding: var(--s3);
-  opacity: 0;
-  transition: var(--ease);
-}
-
-.gallery-item:hover .gallery-overlay {
-  opacity: 1;
-}
-
-.gallery-overlay span {
-  color: var(--white);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  letter-spacing: 0.05em;
 }
 
 
@@ -414,18 +538,12 @@ blockquote {
 
 /* ── Responsive ───────────────────────────── */
 @media (max-width: 1024px) {
-  .team-culture {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .team-voices {
     grid-template-columns: 1fr 1fr;
   }
-  .team-gallery {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 220px 220px;
-  }
-  .gallery-item--wide {
-    grid-column: span 2;
+  .gallery-marquee-item {
+    width: 260px;
+    height: 200px;
   }
 }
 
@@ -433,21 +551,24 @@ blockquote {
   .team-section {
     padding: var(--s10) var(--s4);
   }
-  .team-culture {
-    grid-template-columns: 1fr 1fr;
-  }
   .team-voices {
     grid-template-columns: 1fr;
   }
-  .team-gallery {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+  .culture-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
   }
-  .gallery-item {
-    height: 220px;
+  .gallery-marquee-item {
+    width: 220px;
+    height: 170px;
   }
-  .gallery-item--wide {
-    grid-column: span 1;
+  .news-item-num {
+    font-size: 1.4rem;
+    min-width: 40px;
+  }
+  .news-item-title {
+    font-size: var(--fs-base);
   }
   .join-cta {
     flex-direction: column;
@@ -466,7 +587,11 @@ blockquote {
 }
 
 @media (max-width: 480px) {
-  .team-culture {
-    grid-template-columns: 1fr;
+  .news-item {
+    gap: var(--s3);
+  }
+  .gallery-marquee-item {
+    width: 180px;
+    height: 140px;
   }
 }
