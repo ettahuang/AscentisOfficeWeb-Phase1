@@ -1,0 +1,323 @@
+/* =============================================
+   Phase 2 — 新增區段樣式
+   ============================================= */
+
+/* ── 新聞新知 (News) ───────────────────────── */
+.news-grid {
+  /* 沿用 awards-grid，此處可做微調 */
+}
+
+.news-card {
+  position: relative;
+}
+
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  margin-bottom: var(--s3);
+  flex-wrap: wrap;
+}
+
+.news-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  letter-spacing: 0.03em;
+}
+
+.news-tag--award {
+  background: rgba(234, 179, 8, 0.15);
+  color: #b45309;
+}
+
+.news-tag--news {
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--blue-600);
+}
+
+.news-date {
+  font-size: var(--fs-xs);
+  color: var(--text-400);
+  font-weight: 500;
+}
+
+
+/* ── 夥伴專區 (Team) ──────────────────────── */
+.team-section {
+  padding: var(--s12) var(--s6);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-header {
+  text-align: center;
+  margin-bottom: var(--s8);
+}
+
+/* 文化亮點 4格 */
+.team-culture {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s4);
+  margin-bottom: var(--s10);
+}
+
+.culture-card {
+  background: var(--white);
+  border: 1px solid var(--blue-100);
+  border-radius: var(--r-lg);
+  padding: var(--s5);
+  text-align: center;
+  transition: var(--ease);
+}
+
+.culture-card:hover {
+  border-color: var(--blue-400);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.culture-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--r-full);
+  background: var(--blue-50);
+  color: var(--blue-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin: 0 auto var(--s3);
+}
+
+.culture-card h4 {
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--text-900);
+  margin-bottom: var(--s2);
+}
+
+.culture-card p {
+  font-size: var(--fs-sm);
+  color: var(--text-500);
+  line-height: 1.65;
+}
+
+/* 夥伴心聲 */
+.team-voices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s5);
+  margin-bottom: var(--s10);
+}
+
+.voice-card {
+  background: var(--blue-50);
+  border-radius: var(--r-lg);
+  padding: var(--s5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+
+.voice-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--r-full);
+  overflow: hidden;
+  border: 3px solid var(--blue-200);
+  flex-shrink: 0;
+}
+
+.voice-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+blockquote {
+  font-size: var(--fs-sm);
+  color: var(--text-600);
+  line-height: 1.75;
+  font-style: italic;
+  margin: 0;
+  position: relative;
+  padding-left: var(--s3);
+  border-left: 3px solid var(--blue-300);
+}
+
+.voice-author {
+  margin-top: auto;
+}
+
+.voice-author strong {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--blue-700);
+}
+
+.voice-author span {
+  font-size: var(--fs-xs);
+  color: var(--text-400);
+}
+
+/* 活動照片牆 */
+.team-gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 280px;
+  gap: var(--s3);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.6) 0%, transparent 60%);
+  display: flex;
+  align-items: flex-end;
+  padding: var(--s3);
+  opacity: 0;
+  transition: var(--ease);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay span {
+  color: var(--white);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+
+/* ── 尋找夥伴 CTA (in Contact section) ──────── */
+.join-cta {
+  margin-top: var(--s6);
+  background: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-700) 100%);
+  border-radius: var(--r-lg);
+  padding: var(--s5) var(--s6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s5);
+  flex-wrap: wrap;
+}
+
+.join-cta-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s4);
+  flex: 1;
+}
+
+.join-cta-icon {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.85);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.join-cta-title {
+  font-size: var(--fs-lg);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: var(--s1);
+}
+
+.join-cta-desc {
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.65;
+}
+
+.join-cta-btn {
+  background: var(--white) !important;
+  color: var(--blue-700) !important;
+  border-color: var(--white) !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.join-cta-btn:hover {
+  background: var(--blue-50) !important;
+}
+
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 1024px) {
+  .team-culture {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .team-voices {
+    grid-template-columns: 1fr 1fr;
+  }
+  .team-gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 220px 220px;
+  }
+  .gallery-item--wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-section {
+    padding: var(--s10) var(--s4);
+  }
+  .team-culture {
+    grid-template-columns: 1fr 1fr;
+  }
+  .team-voices {
+    grid-template-columns: 1fr;
+  }
+  .team-gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .gallery-item {
+    height: 220px;
+  }
+  .gallery-item--wide {
+    grid-column: span 1;
+  }
+  .join-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .join-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-culture {
+    grid-template-columns: 1fr;
+  }
+}
