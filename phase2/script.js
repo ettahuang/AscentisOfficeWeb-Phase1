@@ -10,6 +10,19 @@ if (typeof SITE_IMAGES !== 'undefined') {
   });
 }
 
+// ── Intro overlay ────────────────────────────
+(function () {
+  const intro = document.getElementById('page-intro');
+  if (!intro) return;
+
+  // 進度條動完 (2s) 後再等 0.1s 才開始滑走，時序對齊
+  setTimeout(() => {
+    intro.classList.add('exit');
+    // 動畫結束後移除 DOM，避免擋住 hover/scroll 事件
+    setTimeout(() => intro.remove(), 1050);
+  }, 2200);
+})();
+
 // ── Navbar scroll behavior ──────────────────
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
