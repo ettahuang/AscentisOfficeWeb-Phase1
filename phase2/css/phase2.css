@@ -8,22 +8,29 @@
   inset: 0;
   z-index: 9999;
   overflow: hidden;
-  transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
+  /* 背景透明，讓下面的真實 hero 在 crossfade 時自然浮現 */
+  background: transparent;
+  pointer-events: none;
 }
 
-#page-intro.exit {
-  transform: translateY(-100%);
-}
-
+/* AI 圖層：慢速 Ken Burns，然後 fade out */
 .intro-bg {
   position: absolute;
   inset: 0;
-  background: url('../../images/home-backup/IMG_5408.png') center / cover no-repeat;
-  animation: intro-kenburns 4s ease-out forwards;
+  /* 路徑由 JS 設定，確保從頁面位置出發 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: intro-kenburns 5s ease-out forwards;
+  transition: opacity 1.8s ease-in-out;
+}
+
+.intro-bg.fade-out {
+  opacity: 0;
 }
 
 @keyframes intro-kenburns {
-  from { transform: scale(1.12); }
+  from { transform: scale(1.1); }
   to   { transform: scale(1.0); }
 }
 
@@ -32,10 +39,15 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(10, 20, 50, 0.25) 0%,
-    rgba(10, 20, 50, 0.1) 40%,
-    rgba(10, 20, 50, 0.7) 100%
+    rgba(10, 20, 50, 0.2) 0%,
+    rgba(10, 20, 50, 0.05) 40%,
+    rgba(10, 20, 50, 0.65) 100%
   );
+  transition: opacity 1.8s ease-in-out;
+}
+
+.intro-vignette.fade-out {
+  opacity: 0;
 }
 
 .intro-content {
@@ -48,10 +60,15 @@
   width: 100%;
   padding: 0 2rem;
   animation: intro-content-in 0.9s 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.intro-content.fade-out {
+  opacity: 0;
 }
 
 @keyframes intro-content-in {
-  from { opacity: 0; transform: translateX(-50%) translateY(30px); }
+  from { opacity: 0; transform: translateX(-50%) translateY(28px); }
   to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
@@ -89,13 +106,18 @@
   width: 100%;
   height: 3px;
   background: rgba(255,255,255,0.15);
+  transition: opacity 0.5s ease;
+}
+
+.intro-bar.fade-out {
+  opacity: 0;
 }
 
 .intro-bar-fill {
   height: 100%;
   width: 0%;
   background: rgba(255,255,255,0.7);
-  animation: intro-progress 2s 0.2s linear forwards;
+  animation: intro-progress 2.2s 0.2s linear forwards;
 }
 
 @keyframes intro-progress {

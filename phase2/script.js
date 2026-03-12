@@ -10,17 +10,34 @@ if (typeof SITE_IMAGES !== 'undefined') {
   });
 }
 
-// ── Intro overlay ────────────────────────────
+// ── Intro overlay (A→B crossfade) ───────────
 (function () {
   const intro = document.getElementById('page-intro');
   if (!intro) return;
 
-  // 進度條動完 (2s) 後再等 0.1s 才開始滑走，時序對齊
+  // 用 JS 設路徑（相對於 phase2/index.html）避免 CSS 相對路徑問題
+  const bg = intro.querySelector('.intro-bg');
+  bg.style.backgroundImage = "url('../images/home-backup/IMG_5408.png')";
+
+  const vignette = intro.querySelector('.intro-vignette');
+  const content  = intro.querySelector('.intro-content');
+  const bar      = intro.querySelector('.intro-bar');
+
+  // 進度條跑完後（約 2.4s），開始慢慢 crossfade
   setTimeout(() => {
-    intro.classList.add('exit');
-    // 動畫結束後移除 DOM，避免擋住 hover/scroll 事件
-    setTimeout(() => intro.remove(), 1050);
-  }, 2200);
+    // 文字和進度條先快一點淡出
+    if (content) content.classList.add('fade-out');
+    if (bar)     bar.classList.add('fade-out');
+
+    // 0.3s 後 AI 圖層和暗層開始 1.8s 慢淡（此時真實 hero 從後方浮現）
+    setTimeout(() => {
+      bg.classList.add('fade-out');
+      if (vignette) vignette.classList.add('fade-out');
+
+      // fade 結束後移除 DOM
+      setTimeout(() => intro.remove(), 1900);
+    }, 300);
+  }, 2400);
 })();
 
 // ── Navbar scroll behavior ──────────────────
