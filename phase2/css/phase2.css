@@ -168,6 +168,21 @@
   padding: var(--s8) 0 var(--s6);
 }
 
+/* Override base green section-tag with blue */
+.news-section .section-tag {
+  background: var(--blue-50);
+  color: var(--blue-700);
+}
+
+/* Stronger text on light background */
+.news-section .section-title {
+  color: var(--text-900);
+}
+
+.news-section .section-desc {
+  color: var(--text-700);
+}
+
 .news-header {
   max-width: var(--max-w);
   margin: 0 auto;
@@ -269,7 +284,7 @@
 
 .news-item-desc {
   font-size: var(--fs-sm);
-  color: var(--text-500);
+  color: var(--text-700);
   line-height: 1.65;
   margin: 0;
 }

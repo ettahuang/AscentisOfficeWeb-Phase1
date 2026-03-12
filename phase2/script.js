@@ -282,7 +282,7 @@ sections.forEach(s => sectionObserver.observe(s));
   const nextBtn = document.querySelector('.voice-nav-btn--next');
 
   function getVisible() {
-    return window.innerWidth < 768 ? 1 : 2;
+    return window.innerWidth < 768 ? 1 : 3;
   }
 
   function getMaxPos() {
