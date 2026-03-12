@@ -161,6 +161,20 @@ sections.forEach(s => sectionObserver.observe(s));
   counter.textContent = '1 / ' + total;
   frame.appendChild(counter);
 
+  // Build progress bar
+  const progressWrap = document.createElement('div');
+  progressWrap.className = 'carousel-progress';
+  const progressBar = document.createElement('div');
+  progressBar.className = 'carousel-progress-bar';
+  progressWrap.appendChild(progressBar);
+  frame.appendChild(progressWrap);
+
+  function restartProgress() {
+    progressBar.style.animation = 'none';
+    progressBar.offsetWidth; // force reflow
+    progressBar.style.animation = 'carousel-fill 5s linear forwards';
+  }
+
   const dots = dotsEl.querySelectorAll('.dot');
 
   function goTo(index) {
@@ -170,23 +184,32 @@ sections.forEach(s => sectionObserver.observe(s));
     slides[current].classList.add('active');
     dots[current].classList.add('active');
     counter.textContent = (current + 1) + ' / ' + total;
+    restartProgress();
   }
 
-  // Auto-play
-  const INTERVAL = 3000;
+  // Auto-play every 5 seconds
+  const INTERVAL = 5000;
   let timer = setInterval(() => goTo(current + 1), INTERVAL);
+  restartProgress();
 
   function resetTimer() {
     clearInterval(timer);
     timer = setInterval(() => goTo(current + 1), INTERVAL);
+    restartProgress();
   }
 
   frame.querySelector('.carousel-prev').addEventListener('click', () => { goTo(current - 1); resetTimer(); });
   frame.querySelector('.carousel-next').addEventListener('click', () => { goTo(current + 1); resetTimer(); });
 
-  // Pause on hover
-  frame.addEventListener('mouseenter', () => clearInterval(timer));
-  frame.addEventListener('mouseleave', () => { timer = setInterval(() => goTo(current + 1), INTERVAL); });
+  // Pause on hover (also freeze progress bar)
+  frame.addEventListener('mouseenter', () => {
+    clearInterval(timer);
+    progressBar.style.animationPlayState = 'paused';
+  });
+  frame.addEventListener('mouseleave', () => {
+    progressBar.style.animationPlayState = 'running';
+    timer = setInterval(() => goTo(current + 1), INTERVAL);
+  });
 
   // Keyboard support when hovering
   frame.addEventListener('keydown', (e) => {
