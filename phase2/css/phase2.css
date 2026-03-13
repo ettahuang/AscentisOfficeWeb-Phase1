@@ -346,16 +346,41 @@
   padding: var(--s4) var(--s4) var(--s6);
 }
 
-/* 中心線：上亮下淡，暗示時間方向 */
+/* 中心線 */
 .news-timeline::before {
   content: '';
   position: absolute;
   left: 50%;
-  top: 0;
-  bottom: 0;
+  top: 16px;
+  bottom: 20px;
   width: 2px;
   background: linear-gradient(to bottom, var(--blue-500) 0%, var(--blue-300) 60%, var(--blue-100) 100%);
   transform: translateX(-50%);
+}
+
+/* 頂端圓點（出發點） */
+.news-timeline::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--blue-500);
+  transform: translateX(-50%);
+  box-shadow: 0 0 0 3px var(--blue-100);
+}
+
+/* 底端箭頭（未來方向） */
+.tl-axis-arrow {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  color: var(--blue-200);
+  font-size: 1rem;
+  line-height: 1;
 }
 
 /* 每個 item */
@@ -458,26 +483,6 @@
   transform: translateX(0);
 }
 
-/* 時間軸頂端／底端標籤 */
-.tl-axis-label {
-  position: relative;
-  text-align: center;
-  font-size: var(--fs-xs);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-.tl-axis-top {
-  color: var(--blue-600);
-  margin-bottom: var(--s3);
-}
-.tl-axis-bottom {
-  color: var(--blue-300);
-  margin-top: var(--s2);
-}
 
 /* ── 新聞清單 (legacy, hidden) ───────────── */
 .news-list {

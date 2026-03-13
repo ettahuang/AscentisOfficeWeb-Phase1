@@ -356,7 +356,17 @@ if (scrollTop) {
     const lang = document.documentElement.getAttribute('data-lang') || 'zh';
     const t = (typeof i18nData !== 'undefined' && i18nData[lang]) ? i18nData[lang] : {};
 
-    imgEl.src  = data.img;
+    // 先隱藏圖片避免閃到舊圖，載入完再顯示
+    imgEl.style.opacity = '0';
+    imgEl.src = '';
+    const newImg = new Image();
+    newImg.onload = () => {
+      imgEl.src = data.img;
+      imgEl.style.transition = 'opacity 0.3s ease';
+      imgEl.style.opacity = '1';
+    };
+    newImg.src = data.img;
+
     dateEl.textContent = data.date;
 
     // tag badge
