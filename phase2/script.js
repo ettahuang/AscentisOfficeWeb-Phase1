@@ -383,7 +383,7 @@ if (scrollTop) {
   }
 
   // 點擊 news-item 開啟
-  document.querySelectorAll('.news-item[data-news-id]').forEach(item => {
+  document.querySelectorAll('[data-news-id]').forEach(item => {
     item.addEventListener('click', () => openModal(item.getAttribute('data-news-id')));
     item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(item.getAttribute('data-news-id')); });
   });
