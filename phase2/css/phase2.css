@@ -932,6 +932,69 @@ blockquote {
 }
 
 
+/* ── Contact 右側：地圖 + 徵才並排 ─────────── */
+.contact-right-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+
+/* 覆寫原本的 min-height，讓地圖適應新佈局 */
+.contact-right-wrap .contact-map-wrap {
+  min-height: 240px;
+  flex: 1;
+}
+.contact-right-wrap .contact-map-wrap iframe {
+  min-height: 240px;
+}
+
+.contact-hiring {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1.5px solid var(--blue-100);
+  box-shadow: var(--shadow-sm);
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+.hiring-img-wrap {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+.hiring-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hiring-content {
+  padding: var(--s4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.hiring-title {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--text-900);
+  margin: 0;
+}
+
+.hiring-desc {
+  font-size: var(--fs-sm);
+  color: var(--text-500);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.hiring-content .join-cta-btn {
+  align-self: flex-start;
+  margin-top: var(--s1);
+}
+
 /* ── 尋找夥伴 CTA ──────────────────────────── */
 .join-cta-outer {
   max-width: var(--max-w);
