@@ -41,14 +41,11 @@ if (typeof SITE_IMAGES !== 'undefined') {
     setTimeout(() => intro.remove(), 1900);
   }
 
-  // 圖片載入完成後才啟動 Ken Burns 動畫，動畫結束後自動進入
+  // 圖片載入完成後啟動 Ken Burns 動畫，3 秒後自動進入
   const preload = new Image();
   preload.onload = () => {
     bg.style.backgroundImage = `url('${imgSrc}')`;
-    // 動畫跑完後自動 dismiss
-    bg.addEventListener('animationend', dismissIntro, { once: true });
-    // 保險：若 animationend 沒觸發（e.g. 瀏覽器不支援），6s 後強制進入
-    setTimeout(dismissIntro, 6000);
+    setTimeout(dismissIntro, 3000);
   };
   preload.onerror = () => {
     setTimeout(dismissIntro, 1000);
