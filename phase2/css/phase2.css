@@ -168,6 +168,111 @@
 }
 
 
+/* ── Products & Services — 圖片卡片重設計 ── */
+.service-card {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  aspect-ratio: 3 / 4;
+  cursor: default;
+  background: #0a1432;
+  border: none;
+  box-shadow: var(--shadow-md);
+  transform: none;
+}
+.service-card:hover {
+  transform: none;
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+.service-card::before { display: none; }
+
+/* 圖片層 */
+.service-img-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.service-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  display: block;
+}
+.service-card:hover .service-img-wrap img {
+  transform: scale(1.07);
+}
+
+/* 常駐漸層 + hover 加深 */
+.service-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--s4);
+  background: linear-gradient(
+    to top,
+    rgba(5, 15, 40, 0.85) 0%,
+    rgba(5, 15, 40, 0.45) 40%,
+    rgba(5, 15, 40, 0.1) 100%
+  );
+  transition: background 0.4s ease;
+}
+.service-card:hover .service-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(5, 15, 40, 0.92) 0%,
+    rgba(5, 15, 40, 0.72) 50%,
+    rgba(5, 15, 40, 0.3) 100%
+  );
+}
+
+/* 標題：常駐顯示 */
+.service-overlay h3 {
+  color: #fff;
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.service-card:hover .service-overlay h3 {
+  transform: translateY(-4px);
+}
+
+/* 內文：hover 才出現 */
+.service-hover-content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+              opacity 0.35s ease 0.05s;
+}
+.service-card:hover .service-hover-content {
+  max-height: 200px;
+  opacity: 1;
+}
+.service-hover-content > p {
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.82);
+  margin: var(--s2) 0 var(--s2);
+  line-height: 1.65;
+}
+.service-hover-content .service-features {
+  gap: 6px;
+}
+.service-hover-content .service-feature {
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, 0.7);
+}
+.service-hover-content .service-feature::before {
+  background: var(--blue-300);
+}
+
+
 /* ── 新聞新知 (News Section) ──────────────── */
 .news-section {
   background: var(--gray-50, #f8fafc);
@@ -187,6 +292,7 @@
 
 .news-section .section-desc {
   color: var(--text-700);
+  margin: 0 auto;
 }
 
 .news-header {
@@ -354,6 +460,10 @@
 .team-header {
   text-align: center;
   margin-bottom: var(--s5);
+}
+
+.team-header .section-desc {
+  margin: 0 auto;
 }
 
 /* 文化亮點 4格 */
