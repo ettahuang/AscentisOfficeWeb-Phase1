@@ -346,7 +346,7 @@
   padding: var(--s4) var(--s4) var(--s6);
 }
 
-/* 中心線 */
+/* 中心線：上亮下淡，暗示時間方向 */
 .news-timeline::before {
   content: '';
   position: absolute;
@@ -354,7 +354,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom, var(--blue-200), var(--blue-400), var(--blue-200));
+  background: linear-gradient(to bottom, var(--blue-500) 0%, var(--blue-300) 60%, var(--blue-100) 100%);
   transform: translateX(-50%);
 }
 
@@ -456,6 +456,27 @@
 .tl-item:hover .tl-read-more {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* 時間軸頂端／底端標籤 */
+.tl-axis-label {
+  position: relative;
+  text-align: center;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.tl-axis-top {
+  color: var(--blue-600);
+  margin-bottom: var(--s3);
+}
+.tl-axis-bottom {
+  color: var(--blue-300);
+  margin-top: var(--s2);
 }
 
 /* ── 新聞清單 (legacy, hidden) ───────────── */
