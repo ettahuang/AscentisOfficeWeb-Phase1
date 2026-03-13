@@ -21,7 +21,10 @@ if (typeof SITE_IMAGES !== 'undefined') {
   const bg = intro.querySelector('.intro-bg');
   const imgSrc = '../images/home-backup/IMG_5408.png';
 
+  let dismissed = false;
   function dismissIntro() {
+    if (dismissed) return;
+    dismissed = true;
     // 套用預設語言（中文）
     if (typeof applyTranslations === 'function') applyTranslations('zh');
     document.documentElement.setAttribute('data-lang', 'zh');
@@ -38,15 +41,17 @@ if (typeof SITE_IMAGES !== 'undefined') {
     setTimeout(() => intro.remove(), 1900);
   }
 
-  // 圖片載入完成後才開始計算 5 秒
+  // 圖片載入完成後才啟動 Ken Burns 動畫，動畫結束後自動進入
   const preload = new Image();
   preload.onload = () => {
     bg.style.backgroundImage = `url('${imgSrc}')`;
-    setTimeout(dismissIntro, 5000);
+    // 動畫跑完後自動 dismiss
+    bg.addEventListener('animationend', dismissIntro, { once: true });
+    // 保險：若 animationend 沒觸發（e.g. 瀏覽器不支援），6s 後強制進入
+    setTimeout(dismissIntro, 6000);
   };
   preload.onerror = () => {
-    // 圖片載入失敗也不卡住，直接進入
-    setTimeout(dismissIntro, 5000);
+    setTimeout(dismissIntro, 1000);
   };
   preload.src = imgSrc;
 })();
