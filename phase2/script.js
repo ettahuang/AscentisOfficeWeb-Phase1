@@ -10,39 +10,45 @@ if (typeof SITE_IMAGES !== 'undefined') {
   });
 }
 
-// ── Intro overlay — 等待使用者選擇語言 ──────
+// ── Intro overlay — 停留 5 秒後自動進入，預設中文 ──────
 (function () {
   const intro = document.getElementById('page-intro');
   if (!intro) return;
 
-  // 鎖住捲動，直到語言選擇完成
+  // 鎖住捲動
   document.body.style.overflow = 'hidden';
 
   const bg = intro.querySelector('.intro-bg');
-  bg.style.backgroundImage = "url('../images/home-backup/IMG_5408.png')";
+  const imgSrc = '../images/home-backup/IMG_5408.png';
 
-  function crossfade(lang) {
-    // 套用語言
-    if (typeof applyTranslations === 'function') applyTranslations(lang);
-    document.documentElement.setAttribute('data-lang', lang);
+  function dismissIntro() {
+    // 套用預設語言（中文）
+    if (typeof applyTranslations === 'function') applyTranslations('zh');
+    document.documentElement.setAttribute('data-lang', 'zh');
 
-    // 更新 navbar 語言按鈕狀態
     const toggle = document.getElementById('langToggle');
     if (toggle) {
-      toggle.querySelector('.lang-zh')?.classList.toggle('active', lang === 'zh');
-      toggle.querySelector('.lang-en')?.classList.toggle('active', lang === 'en');
+      toggle.querySelector('.lang-zh')?.classList.add('active');
+      toggle.querySelector('.lang-en')?.classList.remove('active');
     }
 
-    // 全部同時淡出（含黑色底層，整個 intro 一起 fade）
+    // 解鎖捲動，整個 intro 一起 fade
     document.body.style.overflow = '';
     intro.classList.add('fade-out');
     setTimeout(() => intro.remove(), 1900);
   }
 
-  // 語言按鈕點擊才觸發 crossfade
-  intro.querySelectorAll('.intro-lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => crossfade(btn.getAttribute('data-lang')));
-  });
+  // 圖片載入完成後才開始計算 5 秒
+  const preload = new Image();
+  preload.onload = () => {
+    bg.style.backgroundImage = `url('${imgSrc}')`;
+    setTimeout(dismissIntro, 5000);
+  };
+  preload.onerror = () => {
+    // 圖片載入失敗也不卡住，直接進入
+    setTimeout(dismissIntro, 5000);
+  };
+  preload.src = imgSrc;
 })();
 
 // ── Language toggle (navbar) ─────────────────
