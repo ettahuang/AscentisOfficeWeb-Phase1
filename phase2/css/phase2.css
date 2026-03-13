@@ -932,23 +932,9 @@ blockquote {
 }
 
 
-/* ── Contact 右側：地圖 + 徵才並排 ─────────── */
-.contact-right-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: var(--s4);
-}
-
-/* 覆寫原本的 min-height，讓地圖適應新佈局 */
-.contact-right-wrap .contact-map-wrap {
-  min-height: 240px;
-  flex: 1;
-}
-.contact-right-wrap .contact-map-wrap iframe {
-  min-height: 240px;
-}
-
+/* ── Contact 左側：徵才卡片（地址下方） ───── */
 .contact-hiring {
+  margin-top: var(--s4);
   border-radius: var(--r-lg);
   overflow: hidden;
   border: 1.5px solid var(--blue-100);
