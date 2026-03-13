@@ -314,8 +314,10 @@
 
     <div class="news-list fade-up">
 
-      <div class="news-item">
-        <div class="news-item-num">01</div>
+      <div class="news-item" data-news-id="1" role="button" tabindex="0">
+        <div class="news-item-thumb">
+          <img src="../images/news/01.jpg" alt="" />
+        </div>
         <div class="news-item-body">
           <div class="news-meta">
             <span class="news-tag news-tag--award"><i class="fa-solid fa-trophy"></i> 得獎</span>
@@ -327,8 +329,10 @@
         <i class="fa-solid fa-arrow-right news-item-arrow"></i>
       </div>
 
-      <div class="news-item">
-        <div class="news-item-num">02</div>
+      <div class="news-item" data-news-id="2" role="button" tabindex="0">
+        <div class="news-item-thumb">
+          <img src="../images/news/02.jpg" alt="" />
+        </div>
         <div class="news-item-body">
           <div class="news-meta">
             <span class="news-tag news-tag--award"><i class="fa-solid fa-trophy"></i> 得獎</span>
@@ -340,8 +344,10 @@
         <i class="fa-solid fa-arrow-right news-item-arrow"></i>
       </div>
 
-      <div class="news-item">
-        <div class="news-item-num">03</div>
+      <div class="news-item" data-news-id="4" role="button" tabindex="0">
+        <div class="news-item-thumb">
+          <img src="../images/news/04.jpg" alt="" />
+        </div>
         <div class="news-item-body">
           <div class="news-meta">
             <span class="news-tag news-tag--award"><i class="fa-solid fa-trophy"></i> 得獎</span>
@@ -353,8 +359,10 @@
         <i class="fa-solid fa-arrow-right news-item-arrow"></i>
       </div>
 
-      <div class="news-item">
-        <div class="news-item-num">04</div>
+      <div class="news-item" data-news-id="3" role="button" tabindex="0">
+        <div class="news-item-thumb">
+          <img src="../images/news/03.jpg" alt="" />
+        </div>
         <div class="news-item-body">
           <div class="news-meta">
             <span class="news-tag news-tag--news"><i class="fa-solid fa-newspaper"></i> 產業動態</span>
@@ -751,6 +759,25 @@
   <button id="scrollTop" aria-label="回到頂部">
     <i class="fa-solid fa-chevron-up"></i>
   </button>
+
+  <!-- ── News Modal ── -->
+  <div id="newsModal" class="news-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="news-modal-backdrop"></div>
+    <div class="news-modal-box">
+      <button class="news-modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="news-modal-img-wrap">
+        <img id="newsModalImg" src="" alt="" />
+      </div>
+      <div class="news-modal-content">
+        <div class="news-modal-meta">
+          <span id="newsModalTag" class="news-tag"></span>
+          <span id="newsModalDate" class="news-date"></span>
+        </div>
+        <h2 id="newsModalTitle" class="news-modal-title"></h2>
+        <p id="newsModalBody" class="news-modal-body"></p>
+      </div>
+    </div>
+  </div>
 
   <script src="images.js"></script>
   <script src="i18n.js"></script>

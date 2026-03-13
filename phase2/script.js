@@ -327,3 +327,68 @@ if (scrollTop) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+// ── News Modal ────────────────────────────────
+(function () {
+  const modal    = document.getElementById('newsModal');
+  if (!modal) return;
+
+  const backdrop = modal.querySelector('.news-modal-backdrop');
+  const closeBtn = modal.querySelector('.news-modal-close');
+  const imgEl    = document.getElementById('newsModalImg');
+  const tagEl    = document.getElementById('newsModalTag');
+  const dateEl   = document.getElementById('newsModalDate');
+  const titleEl  = document.getElementById('newsModalTitle');
+  const bodyEl   = document.getElementById('newsModalBody');
+
+  // 新聞資料（圖片路徑 + meta）
+  const newsData = {
+    1: { img: '../images/news/01.jpg', tag: 'award', date: '2025.03' },
+    2: { img: '../images/news/02.jpg', tag: 'award', date: '2025.03' },
+    3: { img: '../images/news/03.jpg', tag: 'news',  date: '2025.02' },
+    4: { img: '../images/news/04.jpg', tag: 'award', date: '2025.03' },
+  };
+
+  function openModal(id) {
+    const data = newsData[id];
+    if (!data) return;
+
+    const lang = document.documentElement.getAttribute('data-lang') || 'zh';
+    const t = (typeof i18nData !== 'undefined' && i18nData[lang]) ? i18nData[lang] : {};
+
+    imgEl.src  = data.img;
+    dateEl.textContent = data.date;
+
+    // tag badge
+    if (data.tag === 'award') {
+      tagEl.className = 'news-tag news-tag--award';
+      tagEl.innerHTML = '<i class="fa-solid fa-trophy"></i> ' + (lang === 'zh' ? '得獎' : 'Award');
+    } else {
+      tagEl.className = 'news-tag news-tag--news';
+      tagEl.innerHTML = '<i class="fa-solid fa-newspaper"></i> ' + (lang === 'zh' ? '產業動態' : 'Industry');
+    }
+
+    titleEl.textContent = t[`news.item${id}.title`] || '';
+    bodyEl.textContent  = t[`news.item${id}.body`]  || t[`news.item${id}.desc`] || '';
+
+    modal.setAttribute('aria-hidden', 'false');
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // 點擊 news-item 開啟
+  document.querySelectorAll('.news-item[data-news-id]').forEach(item => {
+    item.addEventListener('click', () => openModal(item.getAttribute('data-news-id')));
+    item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(item.getAttribute('data-news-id')); });
+  });
+
+  backdrop.addEventListener('click', closeModal);
+  closeBtn.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+})();
