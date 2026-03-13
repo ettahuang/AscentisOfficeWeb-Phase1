@@ -174,7 +174,7 @@
   padding: 0;
   overflow: hidden;
   border-radius: var(--r-lg);
-  aspect-ratio: 3 / 4;
+  height: 280px;
   cursor: default;
   background: #0a1432;
   border: none;
