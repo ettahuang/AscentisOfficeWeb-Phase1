@@ -408,20 +408,11 @@ if (scrollTop) {
   document.querySelectorAll('.benefit-item[data-benefit-img]').forEach(item => {
     const card = item.closest('.benefit-card');
     if (!card) return;
-    const connector = card.querySelector('.benefit-connector');
-    const panel     = card.querySelector('.benefit-img-panel');
+    const panel = card.querySelector('.benefit-img-panel');
     if (!panel) return;
     const img = panel.querySelector('img');
 
     item.addEventListener('mouseenter', () => {
-      // Position connector at item's vertical centre relative to card
-      if (connector) {
-        const cardRect = card.getBoundingClientRect();
-        const itemRect = item.getBoundingClientRect();
-        const top = itemRect.top - cardRect.top + itemRect.height / 2 - 1;
-        connector.style.top = top + 'px';
-      }
-
       // Preload image, then fade in
       const src = item.getAttribute('data-benefit-img');
       img.classList.remove('img-loaded');

@@ -1072,23 +1072,6 @@ blockquote {
   padding: var(--s4);
 }
 
-/* Connector line: positioned at hovered item's Y, shoots toward the image panel */
-.benefit-connector {
-  position: absolute;
-  right: 0;
-  height: 2px;
-  width: 140px;
-  background: linear-gradient(to left, var(--blue-500), transparent);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.22s ease;
-  pointer-events: none;
-  z-index: 2;
-}
-.benefit-card.img-active .benefit-connector {
-  transform: scaleX(1);
-}
-
 /* Image panel: slides in from the right */
 .benefit-img-panel {
   width: 0;
