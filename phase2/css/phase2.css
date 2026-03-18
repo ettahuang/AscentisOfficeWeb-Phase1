@@ -1072,19 +1072,22 @@ blockquote {
   padding: var(--s4);
 }
 
-/* Image panel: slides in from the right */
+/* Image panel: slides in from the right, fixed 150×110 size */
 .benefit-img-panel {
   width: 0;
   flex-shrink: 0;
   overflow: hidden;
   transition: width 0.35s ease;
+  align-self: center;
+  margin-right: var(--s4);
+  border-radius: var(--r-md);
 }
 .benefit-card.img-active .benefit-img-panel {
-  width: 140px;
+  width: 150px;
 }
 .benefit-img-panel img {
-  width: 140px;
-  height: 100%;
+  width: 150px;
+  height: 110px;
   object-fit: cover;
   display: block;
   opacity: 0;
