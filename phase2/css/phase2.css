@@ -1059,6 +1059,10 @@ blockquote {
 
 
 /* ── Benefit Item Hover Preview ─────────────── */
+.benefit-card {
+  overflow: visible; /* 覆寫 sections.css 的 overflow: hidden，讓 preview 可超出卡片 */
+}
+
 .benefit-preview {
   position: absolute;
   bottom: calc(100% + 8px);
