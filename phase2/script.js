@@ -406,23 +406,37 @@ if (scrollTop) {
 // ── Benefit Item Hover Preview ────────────────
 (function () {
   document.querySelectorAll('.benefit-item[data-benefit-img]').forEach(item => {
-    const card    = item.closest('.benefit-card');
-    const preview = card ? card.querySelector('.benefit-preview') : null;
-    if (!preview) return;
-    const previewImg = preview.querySelector('img');
+    const card = item.closest('.benefit-card');
+    if (!card) return;
+    const connector = card.querySelector('.benefit-connector');
+    const panel     = card.querySelector('.benefit-img-panel');
+    if (!panel) return;
+    const img = panel.querySelector('img');
 
     item.addEventListener('mouseenter', () => {
+      // Position connector at item's vertical centre relative to card
+      if (connector) {
+        const cardRect = card.getBoundingClientRect();
+        const itemRect = item.getBoundingClientRect();
+        const top = itemRect.top - cardRect.top + itemRect.height / 2 - 1;
+        connector.style.top = top + 'px';
+      }
+
+      // Preload image, then fade in
       const src = item.getAttribute('data-benefit-img');
-      previewImg.style.opacity = '0';
-      previewImg.src = src;
-      preview.classList.add('visible');
-      previewImg.onload = () => { previewImg.style.opacity = '1'; };
-      // 已快取的圖片不會觸發 onload，直接顯示
-      if (previewImg.complete) previewImg.style.opacity = '1';
+      img.classList.remove('img-loaded');
+      img.src = src;
+      card.classList.add('img-active');
+
+      const preloader = new Image();
+      preloader.onload = () => { img.classList.add('img-loaded'); };
+      preloader.src = src;
+      if (preloader.complete) img.classList.add('img-loaded');
     });
 
     item.addEventListener('mouseleave', () => {
-      preview.classList.remove('visible');
+      card.classList.remove('img-active');
+      img.classList.remove('img-loaded');
     });
   });
 })();

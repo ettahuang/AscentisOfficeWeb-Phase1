@@ -1058,37 +1058,57 @@ blockquote {
 }
 
 
-/* ── Benefit Item Hover Preview ─────────────── */
+/* ── Benefit Card Two-Column Layout ─────────── */
 .benefit-card {
-  overflow: visible; /* 覆寫 sections.css 的 overflow: hidden，讓 preview 可超出卡片 */
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  padding: 0; /* 移到 .benefit-main */
 }
 
-.benefit-preview {
+.benefit-main {
+  flex: 1;
+  min-width: 0;
+  padding: var(--s4);
+}
+
+/* Connector line: positioned at hovered item's Y, shoots toward the image panel */
+.benefit-connector {
   position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%) scale(0.94);
-  width: 150px;
-  height: 110px;
-  border-radius: var(--r-md);
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  right: 0;
+  height: 2px;
+  width: 140px;
+  background: linear-gradient(to left, var(--blue-500), transparent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.22s ease;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  z-index: 100;
-  border: 2px solid #fff;
+  z-index: 2;
 }
-.benefit-preview.visible {
-  opacity: 1;
-  transform: translateX(-50%) scale(1);
+.benefit-card.img-active .benefit-connector {
+  transform: scaleX(1);
 }
-.benefit-preview img {
-  width: 100%;
+
+/* Image panel: slides in from the right */
+.benefit-img-panel {
+  width: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: width 0.35s ease;
+}
+.benefit-card.img-active .benefit-img-panel {
+  width: 140px;
+}
+.benefit-img-panel img {
+  width: 140px;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: opacity 0.25s ease;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.benefit-img-panel img.img-loaded {
+  opacity: 1;
 }
 
 /* ── Responsive ───────────────────────────── */
