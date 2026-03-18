@@ -412,8 +412,13 @@ if (scrollTop) {
     const previewImg = preview.querySelector('img');
 
     item.addEventListener('mouseenter', () => {
-      previewImg.src = item.getAttribute('data-benefit-img');
+      const src = item.getAttribute('data-benefit-img');
+      previewImg.style.opacity = '0';
+      previewImg.src = src;
       preview.classList.add('visible');
+      previewImg.onload = () => { previewImg.style.opacity = '1'; };
+      // 已快取的圖片不會觸發 onload，直接顯示
+      if (previewImg.complete) previewImg.style.opacity = '1';
     });
 
     item.addEventListener('mouseleave', () => {
