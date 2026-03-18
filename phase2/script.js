@@ -402,3 +402,42 @@ if (scrollTop) {
   closeBtn.addEventListener('click', closeModal);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 })();
+
+// ── Benefit Item Image Tooltip ────────────────
+(function () {
+  const tooltip = document.createElement('div');
+  tooltip.className = 'benefit-img-tooltip';
+  const tooltipImg = document.createElement('img');
+  tooltip.appendChild(tooltipImg);
+  document.body.appendChild(tooltip);
+
+  let currentSrc = '';
+
+  document.querySelectorAll('.benefit-item[data-benefit-img]').forEach(item => {
+    item.addEventListener('mouseenter', e => {
+      const src = item.getAttribute('data-benefit-img');
+      if (src !== currentSrc) {
+        tooltipImg.src = src;
+        currentSrc = src;
+      }
+      positionTooltip(e);
+      tooltip.classList.add('visible');
+    });
+
+    item.addEventListener('mousemove', positionTooltip);
+
+    item.addEventListener('mouseleave', () => {
+      tooltip.classList.remove('visible');
+    });
+  });
+
+  function positionTooltip(e) {
+    const offset = 16;
+    let x = e.clientX + offset;
+    let y = e.clientY + offset;
+    if (x + 140 > window.innerWidth)  x = e.clientX - 140 - offset;
+    if (y + 100 > window.innerHeight) y = e.clientY - 100 - offset;
+    tooltip.style.left = x + 'px';
+    tooltip.style.top  = y + 'px';
+  }
+})();
