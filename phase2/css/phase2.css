@@ -1058,30 +1058,28 @@ blockquote {
 }
 
 
-/* ── Benefit Item Hover Tooltip ────────────── */
-.benefit-item {
-  position: relative;
-}
-
-.benefit-img-tooltip {
-  position: fixed;
-  width: 140px;
-  height: 100px;
+/* ── Benefit Item Hover Preview ─────────────── */
+.benefit-preview {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.94);
+  width: 150px;
+  height: 110px;
   border-radius: var(--r-md);
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0,0,0,0.18);
   pointer-events: none;
   opacity: 0;
-  transform: scale(0.92) translateY(4px);
   transition: opacity 0.2s ease, transform 0.2s ease;
-  z-index: 7000;
+  z-index: 100;
   border: 2px solid #fff;
 }
-.benefit-img-tooltip.visible {
+.benefit-preview.visible {
   opacity: 1;
-  transform: scale(1) translateY(0);
+  transform: translateX(-50%) scale(1);
 }
-.benefit-img-tooltip img {
+.benefit-preview img {
   width: 100%;
   height: 100%;
   object-fit: cover;
