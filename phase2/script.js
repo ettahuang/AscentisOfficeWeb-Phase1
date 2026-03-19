@@ -431,3 +431,40 @@ if (scrollTop) {
     });
   });
 })();
+
+// ── Benefits Photo Carousel ────────────────────────────
+(function () {
+  const track = document.getElementById('benefitsPhotoTrack');
+  if (!track) return;
+
+  const overflow = track.parentElement;
+  const imgs = Array.from(track.children);
+  const total = imgs.length;
+  let pos = 0;
+
+  const prevBtn = document.querySelector('.benefits-photo-btn--prev');
+  const nextBtn = document.querySelector('.benefits-photo-btn--next');
+
+  function getVisible() {
+    return window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+  }
+  function getMax() { return Math.max(0, total - getVisible()); }
+  function setWidths() {
+    const v = getVisible(), gap = 12;
+    const w = (overflow.offsetWidth - gap * (v - 1)) / v;
+    imgs.forEach(img => { img.style.width = w + 'px'; });
+    return w;
+  }
+  function update() {
+    const w = setWidths(), gap = 12, max = getMax();
+    if (pos > max) pos = 0;
+    if (pos < 0)   pos = max;
+    track.style.transform = `translateX(-${pos * (w + gap)}px)`;
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => { pos--; update(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { pos++; update(); });
+  window.addEventListener('resize', update);
+  update();
+  setInterval(() => { pos++; update(); }, 3500);
+})();
