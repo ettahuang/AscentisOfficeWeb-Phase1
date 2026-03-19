@@ -344,9 +344,9 @@ if (scrollTop) {
   // 新聞資料（圖片路徑 + meta）
   const newsData = {
     1: { img: '../images/news/01.jpg', tag: 'award', date: '2025.03' },
-    2: { img: '../images/news/02.jpg', tag: 'award', date: '2025.03' },
-    3: { img: '../images/news/03.jpg', tag: 'news',  date: '2025.02' },
-    4: { img: '../images/news/04.jpg', tag: 'award', date: '2025.03' },
+    2: { img: '../images/news/02.png', tag: 'award', date: '2025.03' },
+    3: { img: '../images/news/03.png', tag: 'news',  date: '2025.02' },
+    4: { img: '../images/news/04.png', tag: 'award', date: '2025.03' },
   };
 
   function openModal(id) {
