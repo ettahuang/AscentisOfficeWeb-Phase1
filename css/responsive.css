@@ -14,6 +14,7 @@
 
   .nav-links { display: none; }
   .hamburger { display: flex; }
+  .nav-right  { margin-left: auto; }  /* nav-links 隱藏後改由 nav-right 撐到最右 */
 
   .hero-title { font-size: clamp(2rem, 8vw, 3rem); }
   .hero-stats {
