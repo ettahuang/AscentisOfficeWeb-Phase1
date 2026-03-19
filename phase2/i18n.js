@@ -123,13 +123,9 @@ const i18nData = {
     'benefits.cat2.item2': '團隊聚餐',
     'benefits.cat2.item3': '春酒尾牙',
     'benefits.cat2.item4': '健康檢查補助',
-    'benefits.cat3.title': '生活放鬆<br>＆辦公室享受',
-    'benefits.cat3.item1': '全薪病假',
-    'benefits.cat3.item2': '額外特休',
-    'benefits.cat3.item3': '生日假',
-    'benefits.cat3.item4': '零食咖啡吧',
-    'benefits.cat3.item5': '下午茶',
-    'benefits.cat3.item6': '按摩',
+    'benefits.cat3.title': '生活放鬆＆辦公室享受',
+    'benefits.cat3.item1': '全薪病假、額外特休、生日假',
+    'benefits.cat3.item2': '零食咖啡吧、下午茶、按摩',
 
     // ── Contact ───────────────────────────────
     'contact.tag':              '聯絡我們',
@@ -271,13 +267,9 @@ const i18nData = {
     'benefits.cat2.item2': 'Team Dinners',
     'benefits.cat2.item3': 'Year-End Party',
     'benefits.cat2.item4': 'Health Checkup Subsidy',
-    'benefits.cat3.title': 'Life &amp; Office<br>Perks',
-    'benefits.cat3.item1': 'Full-Pay Sick Leave',
-    'benefits.cat3.item2': 'Extra Annual Leave',
-    'benefits.cat3.item3': 'Birthday Leave',
-    'benefits.cat3.item4': 'Snack & Coffee Bar',
-    'benefits.cat3.item5': 'Afternoon Tea',
-    'benefits.cat3.item6': 'Massage',
+    'benefits.cat3.title': 'Life & Office Perks',
+    'benefits.cat3.item1': 'Full-Pay Sick Leave · Extra Leave · Birthday Leave',
+    'benefits.cat3.item2': 'Snack & Coffee Bar · Afternoon Tea · Massage',
 
     // ── Contact ───────────────────────────────
     'contact.tag':              'Contact',
@@ -307,6 +299,6 @@ function applyTranslations(lang) {
   if (!t) return;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (t[key] !== undefined) el.innerHTML = t[key];
+    if (t[key] !== undefined) el.textContent = t[key];
   });
 }
