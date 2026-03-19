@@ -1115,6 +1115,7 @@ blockquote {
 @media (max-width: 768px) {
   /* Timeline — single column on mobile */
   .news-timeline::before { left: 20px; }
+  .news-timeline::after  { left: 20px; }  /* 頂端圓點跟著線移到左側 */
   .tl-item {
     width: calc(100% - 52px);
     margin-left: 52px !important;
@@ -1127,7 +1128,7 @@ blockquote {
   }
 
   .team-section {
-    padding: var(--s10) var(--s4);
+    padding: var(--s6) var(--s4);  /* 原本 var(--s10) 未定義，整條 padding 失效 */
   }
   .team-culture {
     grid-template-columns: repeat(2, 1fr);
