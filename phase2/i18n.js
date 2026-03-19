@@ -123,7 +123,7 @@ const i18nData = {
     'benefits.cat2.item2': '團隊聚餐',
     'benefits.cat2.item3': '春酒尾牙',
     'benefits.cat2.item4': '健康檢查補助',
-    'benefits.cat3.title': '生活放鬆＆辦公室享受',
+    'benefits.cat3.title': '生活放鬆<br>＆辦公室享受',
     'benefits.cat3.item1': '全薪病假',
     'benefits.cat3.item2': '額外特休',
     'benefits.cat3.item3': '生日假',
@@ -271,7 +271,7 @@ const i18nData = {
     'benefits.cat2.item2': 'Team Dinners',
     'benefits.cat2.item3': 'Year-End Party',
     'benefits.cat2.item4': 'Health Checkup Subsidy',
-    'benefits.cat3.title': 'Life & Office Perks',
+    'benefits.cat3.title': 'Life &amp; Office<br>Perks',
     'benefits.cat3.item1': 'Full-Pay Sick Leave',
     'benefits.cat3.item2': 'Extra Annual Leave',
     'benefits.cat3.item3': 'Birthday Leave',
@@ -307,6 +307,6 @@ function applyTranslations(lang) {
   if (!t) return;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (t[key] !== undefined) el.textContent = t[key];
+    if (t[key] !== undefined) el.innerHTML = t[key];
   });
 }
