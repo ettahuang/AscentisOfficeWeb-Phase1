@@ -1229,3 +1229,21 @@ blockquote {
 @media (max-width: 768px) {
   .benefits-photo-track img { height: 180px; }
 }
+
+/* ── About Section — 縮短圖片 + 全寬使命 ────── */
+/* 覆蓋 sections.css 中的 4/5 縱向比例，改為橫向 */
+.about .about-img-frame {
+  aspect-ratio: 4 / 3;
+}
+
+/* 我們的使命：grid 下方全寬 */
+.about-mission-wrap {
+  max-width: var(--max-w);
+  margin: var(--s5) auto 0;
+  padding: 0 var(--s4);
+}
+
+.about-mission-wrap .mission-box {
+  width: 100%;
+  max-width: 100%;
+}
