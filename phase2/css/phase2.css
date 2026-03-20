@@ -698,9 +698,14 @@
 
 /* ── 夥伴專區 (Team) ──────────────────────── */
 .team-section {
-  padding: var(--s6) var(--s6);
+  padding: var(--s6) var(--s6) var(--s4);
   max-width: 1200px;
   margin: 0 auto;
+}
+
+/* 縮減 team 和 benefits 之間的間距 */
+.benefits {
+  padding-top: var(--s4);
 }
 
 .team-header {
