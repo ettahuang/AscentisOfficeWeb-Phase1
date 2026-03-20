@@ -19,7 +19,7 @@ if (typeof SITE_IMAGES !== 'undefined') {
   document.body.style.overflow = 'hidden';
 
   const bg = intro.querySelector('.intro-bg');
-  const imgSrc = '../images/home-backup/IMG_5408.png';
+  const imgSrc = '../images/home-backup/01.png';
 
   let dismissed = false;
   function dismissIntro() {
