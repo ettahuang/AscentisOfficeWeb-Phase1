@@ -1246,4 +1246,63 @@ blockquote {
 .about-mission-wrap .mission-box {
   width: 100%;
   max-width: 100%;
+  margin-top: 0;
+  padding: var(--s7) var(--s8);
+  border-left: none;
+  border-radius: var(--r-xl);
+  background: linear-gradient(135deg, var(--blue-700) 0%, var(--blue-500) 100%);
+  box-shadow: 0 8px 32px rgba(30, 77, 161, 0.25);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 裝飾圓點背景 */
+.about-mission-wrap .mission-box::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  pointer-events: none;
+}
+.about-mission-wrap .mission-box::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  pointer-events: none;
+}
+
+.about-mission-wrap .mission-box h3 {
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  color: var(--white);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  margin-bottom: var(--s3);
+}
+
+.about-mission-wrap .mission-box p {
+  font-size: var(--fs-base);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.85;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .about-mission-wrap .mission-box {
+    padding: var(--s5) var(--s4);
+  }
+  .about-mission-wrap .mission-box h3 {
+    font-size: var(--fs-xl);
+  }
 }
