@@ -1244,10 +1244,10 @@ blockquote {
 }
 
 .about-mission-wrap .mission-box {
-  width: 100%;
+  width: 66%;
   max-width: 100%;
-  margin-top: 0;
-  padding: var(--s7) var(--s8);
+  margin: 0 auto;
+  padding: var(--s6) var(--s7);
   border-left: none;
   border-radius: var(--r-xl);
   background: linear-gradient(135deg, var(--blue-700) 0%, var(--blue-500) 100%);
@@ -1282,7 +1282,7 @@ blockquote {
 }
 
 .about-mission-wrap .mission-box h3 {
-  font-size: var(--fs-2xl);
+  font-size: 2.625rem;
   font-weight: 800;
   color: var(--white);
   text-transform: none;
@@ -1291,18 +1291,28 @@ blockquote {
 }
 
 .about-mission-wrap .mission-box p {
-  font-size: var(--fs-base);
+  font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.85;
   max-width: 680px;
   margin: 0 auto;
 }
 
+@media (max-width: 1024px) {
+  .about-mission-wrap .mission-box {
+    width: 85%;
+  }
+}
+
 @media (max-width: 768px) {
   .about-mission-wrap .mission-box {
+    width: 100%;
     padding: var(--s5) var(--s4);
   }
   .about-mission-wrap .mission-box h3 {
-    font-size: var(--fs-xl);
+    font-size: var(--fs-2xl);
+  }
+  .about-mission-wrap .mission-box p {
+    font-size: var(--fs-lg);
   }
 }
