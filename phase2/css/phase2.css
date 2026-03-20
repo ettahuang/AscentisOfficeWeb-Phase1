@@ -1244,7 +1244,7 @@ blockquote {
 }
 
 .about-mission-wrap .mission-box {
-  width: 66%;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
   padding: var(--s6) var(--s7);
@@ -1298,15 +1298,8 @@ blockquote {
   margin: 0 auto;
 }
 
-@media (max-width: 1024px) {
-  .about-mission-wrap .mission-box {
-    width: 85%;
-  }
-}
-
 @media (max-width: 768px) {
   .about-mission-wrap .mission-box {
-    width: 100%;
     padding: var(--s5) var(--s4);
   }
   .about-mission-wrap .mission-box h3 {
